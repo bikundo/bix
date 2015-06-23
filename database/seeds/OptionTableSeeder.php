@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Option;
+use Illuminate\Database\Seeder;
 
 class OptionTableSeeder extends Seeder
 {
@@ -19,10 +19,10 @@ class OptionTableSeeder extends Seeder
             'admin_id'    => 1,
         ];
         foreach ($data as $key => $value) {
-           $d = new Option;
-           $d->option_name = $key;
-           $d->option_value = $value;
-           $d->save();
+            $d = new Option;
+            $d->option_name = $key;
+            $d->option_value = $value;
+            $d->save();
         }
     }
 }

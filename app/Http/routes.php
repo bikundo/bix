@@ -12,7 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $subject = 'Welcome!';
+
+    Mail::send('emails.hello', ['key' => 'value'], function ($message) use ($subject) {
+        $message->to('binmonk@gmail.com', '')
+            ->subject($subject);
+    });
+
+    return 'sent';
 });
 Route::get('admin', function () {
     $data['tasks'] = [
