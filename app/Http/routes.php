@@ -14,7 +14,7 @@
 Route::get('/', function () {
     $subject = 'Welcome!';
 
-    Mail::send('emails.hello', ['key' => 'value'], function ($message) use ($subject) {
+    Mail::send('emails.welcome', ['key' => 'value'], function ($message) use ($subject) {
         $message->to('binmonk@gmail.com', '')
             ->subject($subject);
     });
