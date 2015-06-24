@@ -1,7 +1,7 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        Anything you want
+        We are all apprentices in a craft where no one ever becomes a master.
     </div>
     <!-- Default to the left -->
     <strong>Copyright © 2015 <a href="#">Company</a>.</strong> All rights reserved.
