@@ -115,12 +115,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         e.preventDefault();
         var postTitle = titleEditor.serialize();
         var postContent = bodyEditor.serialize();
+        var token = $('#token').val();
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: "{{ URL::action('PostsController@store') }}",
-            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value']},
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'],_token:token},
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
@@ -145,12 +146,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         e.preventDefault();
         var postTitle = titleEditor.serialize();
         var postContent = bodyEditor.serialize();
-
+        var token = $('#token').val();
         $.ajax({
             type: 'PUT',
             dataType: 'json',
             url: "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
-            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value']},
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'],_token:token},
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
