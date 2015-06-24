@@ -4,38 +4,36 @@
 
 @section('content')
 
-    <h1>All Posts</h1>
-
-    <p>{!! link_to_route('dashboard.posts.create', 'Add new post') !!} </p>
-
     @if ($posts->count())
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Title</th>
-                <th>Body</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-
-            <tbody>
+        <div class="row">
             @foreach ($posts as $post)
-                <tr>
-                    <td style="width: 200px;">{!! strip_tags($post->title) !!}</td>
-                    <td>{!!  strip_tags(str_limit($post->body, 20)) !!}</td>
-                    <td>{!! link_to_route('dashboard.posts.show', 'View', array($post->id), array('class' => 'btn btn-info')) !!}</td>
-                    <td>{!! link_to_route('dashboard.posts.edit', 'Edit', array($post->id), array('class' => 'btn btn-info')) !!}</td>
-                    <td>
-                        {!! Form::open(array('method' => 'DELETE', 'route' => array('dashboard.posts.destroy', $post->id))) !!}
-                        {!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
-                        {!! Form::close() !!}
-                    </td>
-                </tr>
+                <div class="col-md-3">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                           <span class="pull-right">
+                               <a href="{{url('dashboard/posts/'.$post->id.'/edit')}}">
+                                   <i class="fa fa-edit"></i>
+                               </a>
+                           </span>
+
+                            <h3 class="box-title">{!! strip_tags($post->title) !!}</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            {!!  strip_tags(str_limit($post->body, 200)) !!}
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            {!! link_to_route('dashboard.posts.show', 'View', array($post->id), array('class' => 'btn btn-info btn-block btn-flat btn-xs')) !!}
+                            {{--{!! Form::open(array('method' => 'DELETE', 'route' => array('dashboard.posts.destroy', $post->id))) !!}--}}
+                            {{--{!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}--}}
+                            {{--{!! Form::close() !!}--}}
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
             @endforeach
-            </tbody>
-        </table>
+        </div>
     @else
         There are no posts
     @endif

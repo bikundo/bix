@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $.ajax({
             type: 'PUT',
             dataType: 'json',
-            url: "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
+            url: "{{ URL::action('PostsController@update', array(Request::segment(3))) }}",
             data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'],_token:token},
             success: function (data) {
                 if (data.success === false) {
