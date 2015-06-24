@@ -61,8 +61,10 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-// upload image route for MediumInsert plugin
-Route::any('upload', 'PostsController@upload');
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+    // upload image route for MediumInsert plugin
+    Route::any('upload', 'PostsController@upload');
 // resource routes for posts
-Route::resource('posts', 'PostsController');
+    Route::resource('posts', 'PostsController');
 
+});

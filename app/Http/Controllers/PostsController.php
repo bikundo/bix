@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Post;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class PostsController extends Controller
 {
@@ -37,8 +38,10 @@ class PostsController extends Controller
      * @return Response
      */
     public function create()
-    {   $page_title = 'create new blog post';
+    {
+        $page_title = 'create new blog post';
         $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+
         return view('posts.create', compact('page_title', 'page_description'));
     }
 
@@ -49,7 +52,7 @@ class PostsController extends Controller
      */
     public function store()
     {
-        $input = Input::all();
+        $input = Input::except('_token');
 
         $this->post->create($input);
 
@@ -66,8 +69,9 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = $this->post->findOrFail($id);
-
-        return view('posts.show', compact('post'));
+        $page_title = strip_tags($post->title);
+        $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+        return view('posts.show', compact('post', 'page_title', 'page_description'));
     }
 
     /**
@@ -95,7 +99,7 @@ class PostsController extends Controller
      */
     public function update($id)
     {
-        $input = array_except(Input::all(), '_method');
+        $input = Input::except('_token', '_method');
 
         $post = Post::find($id);
         $post->update($input);
