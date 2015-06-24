@@ -37,8 +37,9 @@ class PostsController extends Controller
      * @return Response
      */
     public function create()
-    {
-        return view('posts.create');
+    {   $page_title = 'create new blog post';
+        $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+        return view('posts.create', compact('page_title', 'page_description'));
     }
 
     /**

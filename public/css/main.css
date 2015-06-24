@@ -1,0 +1,10 @@
+.my-editable-divs{
+    outline: aliceblue !important;
+}
+.my-editable-divs:focus{
+    outline: aliceblue !important;
+}
+
+.body-editable{
+    min-height: 450px;
+}

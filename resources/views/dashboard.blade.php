@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ "Bix - Backend" }}</title>
+    <title>{{ "Backend" }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset("/bower_components/admin-lte/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet"
@@ -28,6 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           type="text/css"/>
     <link href="{{ asset("/bower_components/medium-editor/dist/css/themes/bootstrap.min.css")}}" rel="stylesheet"
           type="text/css"/>
+    <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $('.success').hide().empty();
 
     // create post
-    $('body').on('click', '#form-submit', function(e){
+    $('body').on('click', '#form-submit', function (e) {
         e.preventDefault();
         var postTitle = titleEditor.serialize();
         var postContent = bodyEditor.serialize();
@@ -118,22 +119,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url : "{{ URL::action('PostsController@store') }}",
-            data: { title: postTitle['post-title']['value'], body: postContent['post-body']['value'] },
-            success: function(data) {
-                if(data.success === false)
-                {
+            url: "{{ URL::action('PostsController@store') }}",
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value']},
+            success: function (data) {
+                if (data.success === false) {
                     $('.error').append(data.message);
                     $('.error').show();
                 } else {
                     $('.success').append(data.message);
                     $('.success').show();
-                    setTimeout(function() {
+                    setTimeout(function () {
                         window.location.href = "{{ URL::action('PostsController@index') }}";
                     }, 2000);
                 }
             },
-            error: function(xhr, textStatus, thrownError) {
+            error: function (xhr, textStatus, thrownError) {
                 alert('Something went wrong. Please Try again later...');
             }
         });
@@ -141,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
 
     // update post
-    $('body').on('click', '#form-update', function(e){
+    $('body').on('click', '#form-update', function (e) {
         e.preventDefault();
         var postTitle = titleEditor.serialize();
         var postContent = bodyEditor.serialize();
@@ -149,22 +149,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $.ajax({
             type: 'PUT',
             dataType: 'json',
-            url : "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
-            data: { title: postTitle['post-title']['value'], body: postContent['post-body']['value'] },
-            success: function(data) {
-                if(data.success === false)
-                {
+            url: "{{ URL::action('PostsController@update', array(Request::segment(2))) }}",
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value']},
+            success: function (data) {
+                if (data.success === false) {
                     $('.error').append(data.message);
                     $('.error').show();
                 } else {
                     $('.success').append(data.message);
                     $('.success').show();
-                    setTimeout(function() {
+                    setTimeout(function () {
                         window.location.href = "{{ URL::action('PostsController@index') }}";
                     }, 2000);
                 }
             },
-            error: function(xhr, textStatus, thrownError) {
+            error: function (xhr, textStatus, thrownError) {
                 alert('Something went wrong. Please Try again later...');
             }
         });
