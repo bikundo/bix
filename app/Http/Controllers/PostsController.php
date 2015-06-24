@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests\CreateArticleRequest;
 
+/**
+ * Class PostsController
+ * @package App\Http\Controllers
+ */
 class PostsController extends Controller
 {
 
@@ -45,12 +50,12 @@ class PostsController extends Controller
         return view('posts.create', compact('page_title', 'page_description'));
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
+     * @param CreateArticleRequest $request
+     * @return mixed
      */
-    public function store()
+    public function store(CreateArticleRequest $request)
     {
         $input = Input::except('_token');
 
