@@ -1231,3 +1231,18 @@
     color: white;
     max-height: 100px !important;
 }
+
+/*summernote edits*/
+#summernote{
+    min-height: 300px;
+}
+
+.note-editor {
+  position: relative;
+   border: none; 
+}
+.note-editor .note-toolbar {
+   background-color: transparent; 
+   border-bottom: none; 
+    margin: 0 auto;
+}

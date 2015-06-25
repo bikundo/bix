@@ -17,7 +17,7 @@
                 <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}" />
                 <div class="title-editable my-editable-divs text-center" id="post-title"><h1>Enter post title</h1></div>
                 <hr/>
-                <div class="body-editable my-editable-divs" id="post-body"><p>Enter post body</p></div>
+                <textarea id="summernote" rows="" name="body" ></textarea>
                 {!! Form::submit('Save Post', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
 
                 {!! Form::close() !!}

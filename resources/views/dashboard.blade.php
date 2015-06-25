@@ -21,6 +21,11 @@
           type="text/css"/>
     <link href="{{ asset("/bower_components/medium-editor/dist/css/themes/bootstrap.min.css")}}" rel="stylesheet"
           type="text/css"/>
+
+    <link href="{{ asset("/bower_components/summernote/dist/summernote.css")}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset("/bower_components/summernote/dist/summernote-bs3.css")}}" rel="stylesheet"
+          type="text/css"/>
     <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
     {{--notifications--}}
     <script src="{{ asset ("/backend/js/pnotify.custom.min.js") }}" type="text/javascript"></script>
@@ -79,6 +84,8 @@
     </button>
     <div class="row">
         <div class="col-md-6 col-md-offset-3" style="">
+            <h3 class="text-center">Create</h3>
+            <hr>
             <form role="form">
                <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" id="input-38"/>
@@ -109,6 +116,7 @@
 <!-- jQuery 2.1.3 -->
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset ("/bower_components/admin-lte/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+<script src="{{ asset ("/bower_components/summernote/dist/summernote.min.js") }}"></script>
 <!-- AdminLTE App -->
 
 <script src="{{ asset ("/bower_components/admin-lte/dist/js/app.min.js") }}" type="text/javascript"></script>
@@ -122,6 +130,9 @@
     var titleEditor = new MediumEditor('.title-editable');
     var descriptionEditor = new MediumEditor('.description-editable ');
     var bodyEditor = new MediumEditor('.body-editable');
+    $('#summernote').summernote({
+        height: "300px"
+    });
     $(function () {
         // initializing insert image on body editor
         $('.body-editable').MediumEditor({
@@ -144,14 +155,15 @@
     $('body').on('click', '#form-submit', function (e) {
         e.preventDefault();
         var postTitle = titleEditor.serialize();
-        var postContent = bodyEditor.serialize();
+        var contentbody = $('#summernote').code();
         var token = $('#token').val();
+        console.log(contentbody);
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             url: "{{ URL::action('PostsController@store') }}",
-            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'], _token: token},
+            data: {title: postTitle['post-title']['value'], body: contentbody, _token: token},
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
