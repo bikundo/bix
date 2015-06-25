@@ -28,13 +28,15 @@
           type="text/css"/>
     <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
     {{--notifications--}}
-    <script src="{{ asset ("/backend/js/pnotify.custom.min.js") }}" type="text/javascript"></script>
+    {{--<script src="{{ asset ("/backend/js/pnotify.custom.min.js") }}" type="text/javascript"></script>--}}
     {{--vue--}}
     <script src="{{ asset ("/backend/js/vue.min.js") }}" type="text/javascript"></script>
     <script src="{{ asset ("/backend/js/vue-resource.min.js") }}" type="text/javascript"></script>
     {{--end Vue--}}
-    <link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>
+    {{--<link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>--}}
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset("/css/ns-default.css")}}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset("/css/ns-style-growl.css")}}" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -95,6 +97,8 @@
         type="text/javascript"></script>
 <script src="{{ asset ("/js/main.js") }}" type="text/javascript"></script>
 <script src="{{ asset ("/js/overlays.js") }}" type="text/javascript"></script>
+<script src="{{ asset ("/js/notificationFx.js") }}" type="text/javascript"></script>
+
 
 <script>
     buttonLabels: 'fontawesome'
@@ -139,18 +143,24 @@
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
-                    new PNotify({
-                        title: 'Success Klaxon!',
-                        text: data.message,
-                        type: 'error'
+                    var notification = new NotificationFx({
+                        message : '<p>'+data.message+'</p>',
+                        layout : 'growl',
+                        effect : 'jelly',
+                        type : 'success', // notice, warning, error or success
                     });
+                    // show the notification
+                    notification.show();
                 } else {
                     $('.success').append(data.message);
-                    new PNotify({
-                        title: 'Success Klaxon!',
-                        text: data.message,
-                        type: 'success'
+                    var notification = new NotificationFx({
+                        message : '<p>'+data.message+'</p>',
+                        layout : 'growl',
+                        effect : 'jelly',
+                        type : 'success', // notice, warning, error or success
                     });
+                    // show the notification
+                    notification.show();
                 }
             },
             error: function (xhr, textStatus, thrownError) {
@@ -159,7 +169,6 @@
         });
         return false;
     });
-    PNotify.prototype.options.styling = "fontawesome";
     // update post
     $('body').on('click', '#form-update', function (e) {
         e.preventDefault();
@@ -178,15 +187,15 @@
                 } else {
                     $('.success').append(data.message);
 //                    $('.success').show();
-                    new PNotify({
-                        title: 'Success Klaxon!',
-                        text: data.message,
-                        type: 'success'
+                    var notification = new NotificationFx({
+                        message : '<p>'+data.message+'</p>',
+                        layout : 'growl',
+                        effect : 'jelly',
+                        type : 'success', // notice, warning, error or success
                     });
 
-                    {{--setTimeout(function () {--}}
-                    {{--window.location.href = "{{ URL::action('PostsController@index') }}";--}}
-                    {{--}, 2000);--}}
+                    // show the notification
+                    notification.show();
                 }
             },
             error: function (xhr, textStatus, thrownError) {
