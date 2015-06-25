@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateArticleRequest;
 use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
-use App\Http\Requests\CreateArticleRequest;
 
 /**
  * Class PostsController
@@ -34,6 +34,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = $this->post->all();
+
         return view('posts.index', compact('posts'));
     }
 
@@ -76,6 +77,7 @@ class PostsController extends Controller
         $post = $this->post->findOrFail($id);
         $page_title = strip_tags($post->title);
         $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+
         return view('posts.show', compact('post', 'page_title', 'page_description'));
     }
 
@@ -92,8 +94,9 @@ class PostsController extends Controller
         if (is_null($post)) {
             return Redirect::route('posts.index');
         }
+        $page_title = strip_tags($post->title);
 
-        return view('posts.edit', compact('post'));
+        return view('posts.edit', compact('post', 'page_title'));
     }
 
     /**

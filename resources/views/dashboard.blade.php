@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,16 +14,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Theme style -->
     <link href="{{ asset("/bower_components/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css"/>
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
+
     <link href="{{ asset("/bower_components/admin-lte/dist/css/skins/_all-skins.min.css")}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{ asset("/bower_components/medium-editor/dist/css/medium-editor.min.css")}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{ asset("/bower_components/medium-editor/dist/css/themes/bootstrap.min.css")}}" rel="stylesheet"
           type="text/css"/>
+    <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
+
+    <script src="{{ asset ("/backend/js/pnotify.custom.min.js") }}" type="text/javascript"></script>
+    <link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,8 +33,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
-
 </head>
 <body class="skin-blue sidebar-mini">
 <div class="wrapper">
@@ -56,7 +51,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 {{ $page_title or "Page Title" }}
                 <small>{{ $page_description or null }}</small>
             </h1>
-            <!-- You can dynamically generate breadcrumbs here -->
         </section>
 
         <!-- Main content -->
@@ -121,17 +115,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             type: 'POST',
             dataType: 'json',
             url: "{{ URL::action('PostsController@store') }}",
-            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'],_token:token},
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'], _token: token},
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
-                    $('.error').show();
+                    new PNotify({
+                        title: 'Success Klaxon!',
+                        text: data.message,
+                        type: 'error'
+                    });
                 } else {
                     $('.success').append(data.message);
-                    $('.success').show();
-                    setTimeout(function () {
-                        window.location.href = "{{ URL::action('PostsController@index') }}";
-                    }, 2000);
+                    new PNotify({
+                        title: 'Success Klaxon!',
+                        text: data.message,
+                        type: 'success'
+                    });
                 }
             },
             error: function (xhr, textStatus, thrownError) {
@@ -140,7 +139,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         });
         return false;
     });
-
+    PNotify.prototype.options.styling = "fontawesome";
     // update post
     $('body').on('click', '#form-update', function (e) {
         e.preventDefault();
@@ -151,17 +150,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
             type: 'PUT',
             dataType: 'json',
             url: "{{ URL::action('PostsController@update', array(Request::segment(3))) }}",
-            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'],_token:token},
+            data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'], _token: token},
             success: function (data) {
                 if (data.success === false) {
                     $('.error').append(data.message);
                     $('.error').show();
                 } else {
                     $('.success').append(data.message);
-                    $('.success').show();
-                    setTimeout(function () {
-                        window.location.href = "{{ URL::action('PostsController@index') }}";
-                    }, 2000);
+//                    $('.success').show();
+                    new PNotify({
+                        title: 'Success Klaxon!',
+                        text: data.message,
+                        type: 'success'
+                    });
+
+                    {{--setTimeout(function () {--}}
+                        {{--window.location.href = "{{ URL::action('PostsController@index') }}";--}}
+                    {{--}, 2000);--}}
                 }
             },
             error: function (xhr, textStatus, thrownError) {
