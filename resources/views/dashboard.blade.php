@@ -22,8 +22,12 @@
     <link href="{{ asset("/bower_components/medium-editor/dist/css/themes/bootstrap.min.css")}}" rel="stylesheet"
           type="text/css"/>
     <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
-
+    {{--notifications--}}
     <script src="{{ asset ("/backend/js/pnotify.custom.min.js") }}" type="text/javascript"></script>
+    {{--vue--}}
+    <script src="{{ asset ("/backend/js/vue.min.js") }}" type="text/javascript"></script>
+    <script src="{{ asset ("/backend/js/vue-resource.min.js") }}" type="text/javascript"></script>
+    {{--end Vue--}}
     <link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
 
@@ -34,7 +38,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="skin-purple sidebar-mini">
 <div class="wrapper">
 
     <!-- Header -->
@@ -165,7 +169,7 @@
                     });
 
                     {{--setTimeout(function () {--}}
-                        {{--window.location.href = "{{ URL::action('PostsController@index') }}";--}}
+                    {{--window.location.href = "{{ URL::action('PostsController@index') }}";--}}
                     {{--}, 2000);--}}
                 }
             },

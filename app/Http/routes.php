@@ -21,37 +21,7 @@ Route::get('/', function () {
 
     return 'sent';
 });
-Route::get('admin', function () {
-    $data['tasks'] = [
-        [
-            'name'     => 'Design New Dashboard',
-            'progress' => '87',
-            'color'    => 'danger'
-        ],
-        [
-            'name'     => 'Create Home Page',
-            'progress' => '76',
-            'color'    => 'warning'
-        ],
-        [
-            'name'     => 'Some Other Task',
-            'progress' => '32',
-            'color'    => 'success'
-        ],
-        [
-            'name'     => 'Start Building Website',
-            'progress' => '56',
-            'color'    => 'info'
-        ],
-        [
-            'name'     => 'Develop an Awesome Algorithm',
-            'progress' => '10',
-            'color'    => 'success'
-        ]
-    ];
 
-    return view('test')->with($data);
-});
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -66,5 +36,36 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::any('upload', 'PostsController@upload');
 // resource routes for posts
     Route::resource('posts', 'PostsController');
+    Route::get('/', function () {
+        $data['tasks'] = [
+            [
+                'name'     => 'Design New Dashboard',
+                'progress' => '87',
+                'color'    => 'danger'
+            ],
+            [
+                'name'     => 'Create Home Page',
+                'progress' => '76',
+                'color'    => 'warning'
+            ],
+            [
+                'name'     => 'Some Other Task',
+                'progress' => '32',
+                'color'    => 'success'
+            ],
+            [
+                'name'     => 'Start Building Website',
+                'progress' => '56',
+                'color'    => 'info'
+            ],
+            [
+                'name'     => 'Develop an Awesome Algorithm',
+                'progress' => '10',
+                'color'    => 'success'
+            ]
+        ];
+
+        return view('test')->with($data);
+    });
 
 });
