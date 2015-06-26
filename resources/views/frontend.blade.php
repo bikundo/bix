@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kamusi</title>
+    <title>LOL</title>
     <!-- CSS -->
     <link href="{{ asset('/frontend/css/materialize.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/frontend/css/style.css') }}" rel="stylesheet">
@@ -22,20 +22,16 @@
 </head>
 <body>
 <main>
-    <nav>
-        <div class="nav-wrapper blue darken-3">
-            <a href="/" class="brand-logo">Kamusi</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#" class="waves-effect waves-light"><i class="mdi-action-search"></i></a></li>
-                <li><a href="/auth/register" class="waves-effect waves-light">Register</a></li>
-                <li><a href="/auth/login" class="waves-effect waves-light">Login</a></li>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Navbar Link</a></li>
             </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="#" class="waves-effect waves-light"><i class="mdi-action-search"></i></a></li>
-                <li><a href="#" class="waves-effect waves-light">Register</a></li>
-                <li><a href="#" class="waves-effect waves-light">Login</a></li>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
             </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
     </nav>
 
