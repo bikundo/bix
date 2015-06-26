@@ -37,8 +37,8 @@
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/ns-default.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/ns-style-growl.css")}}" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    @yield('header-styles')
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -144,20 +144,20 @@
                 if (data.success === false) {
                     $('.error').append(data.message);
                     var notification = new NotificationFx({
-                        message : '<p>'+data.message+'</p>',
-                        layout : 'growl',
-                        effect : 'jelly',
-                        type : 'success', // notice, warning, error or success
+                        message: '<p>' + data.message + '</p>',
+                        layout: 'growl',
+                        effect: 'jelly',
+                        type: 'success', // notice, warning, error or success
                     });
                     // show the notification
                     notification.show();
                 } else {
                     $('.success').append(data.message);
                     var notification = new NotificationFx({
-                        message : '<p>'+data.message+'</p>',
-                        layout : 'growl',
-                        effect : 'jelly',
-                        type : 'success', // notice, warning, error or success
+                        message: '<p>' + data.message + '</p>',
+                        layout: 'growl',
+                        effect: 'jelly',
+                        type: 'success', // notice, warning, error or success
                     });
                     // show the notification
                     notification.show();
@@ -188,10 +188,10 @@
                     $('.success').append(data.message);
 //                    $('.success').show();
                     var notification = new NotificationFx({
-                        message : '<p>'+data.message+'</p>',
-                        layout : 'growl',
-                        effect : 'jelly',
-                        type : 'success', // notice, warning, error or success
+                        message: '<p>' + data.message + '</p>',
+                        layout: 'growl',
+                        effect: 'jelly',
+                        type: 'success', // notice, warning, error or success
                     });
 
                     // show the notification

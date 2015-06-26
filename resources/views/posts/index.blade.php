@@ -2,38 +2,33 @@
 
 @section('title', 'Posts')
 
+@section('header-styles')
+    <link href="{{ asset("/backend/css/hovers.css")}}" rel="stylesheet" type="text/css"/>
+@endsection
 @section('content')
 
     @if ($posts->count())
-        <div class="row">
+        <div class="grid">
             @foreach ($posts as $post)
-                <div class="col-md-3">
-                    <div class="box box-solid">
-                        <div class="box-header with-border">
-                           <span class="pull-right">
-                               <a href="{{url('dashboard/posts/'.$post->id.'/edit')}}">
-                                   <i class="fa fa-edit"></i>
-                               </a>
-                           </span>
+                <?php $img = head($post->images)?>
+                <figure class="effect-zoe">
+                    {!!  HTML::image($img, 'a picture') !!}
+                    <figcaption>
+                        <h5>{!! strip_tags($post->title) !!}</h5>
 
-                            <h3 class="box-title">{!! strip_tags($post->title) !!}</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            {!!  strip_tags(str_limit($post->body, 200)) !!}
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            {!! link_to_route('dashboard.posts.show', 'View', array($post->id), array('class' => 'btn btn-info btn-block btn-flat btn-xs')) !!}
-                            {{--{!! Form::open(array('method' => 'DELETE', 'route' => array('dashboard.posts.destroy', $post->id))) !!}--}}
-                            {{--{!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}--}}
-                            {{--{!! Form::close() !!}--}}
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </div>
+                        <p class="icon-links pull-right">
+                            <a href="{{url('dashboard/posts/'.$post->id.'/edit')}}">
+                                <i class="fa fa-edit fa-lg"></i>
+                            </a>
+                        </p>
+
+                        <p class="description">Zoe never had the patience of her sisters. She deliberately punched the
+                            bear in his face.</p>
+                    </figcaption>
+                </figure>
             @endforeach
         </div>
+
     @else
         There are no posts
     @endif
