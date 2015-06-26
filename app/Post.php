@@ -1,10 +1,14 @@
 <?php
 
-namespace App;
+    namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
-{
-    protected $fillable = ['title', 'body'];
-}
+    class Post extends Model
+    {
+        protected $fillable = ['title', 'body'];
+        protected $casts = [
+            'images'    => 'array',
+            'published' => 'boolean',
+        ];
+    }
