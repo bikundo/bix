@@ -7,6 +7,7 @@
     <title>LOL</title>
     <!-- CSS -->
     <link href="{{ asset('/frontend/css/materialize.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset("/backend/css/hovers.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/frontend/css/style.css') }}" rel="stylesheet">
 
@@ -39,14 +40,14 @@
 
     @yield('content')
 </main>
-<footer class="page-footer blue darken-3">
-    <div class="footer-copyright">
-        <div class="container">
-            <i class="mdi-image-filter-drama"></i> 2015
-            <a class="grey-text text-lighten-4 right" href="#!">LINK</a>
-        </div>
-    </div>
-</footer>
+{{--<footer class="page-footer blue darken-3">--}}
+    {{--<div class="footer-copyright">--}}
+        {{--<div class="container">--}}
+            {{--<i class="mdi-image-filter-drama"></i> 2015--}}
+            {{--<a class="grey-text text-lighten-4 right" href="#!">LINK</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</footer>--}}
 
 <!-- Scripts -->
 <script src="{{URL::asset('frontend/js/materialize.min.js')}}"></script>

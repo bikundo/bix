@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background: #EDEDED;
 }
 
 main {
@@ -11,4 +12,18 @@ main {
 footer.page-footer {
     margin-top: 20px;
     padding-top: 0px !important;
+}
+.bottom-attached{
+    min-height: 40px;
+    line-height: 2.8;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+.bottom-attached .small{
+    font-size: 0.75em;
+}
+.grid figure{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }

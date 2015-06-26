@@ -13,9 +13,9 @@
 	position: relative;
 	margin: 0 auto;
 	padding: 1em 0 4em;
-	max-width: 1000px;
 	list-style: none;
 	text-align: center;
+    margin-left: 12%;
 }
 
 /* Common style */
@@ -27,7 +27,7 @@
 	min-width: 320px;
 	max-width: 480px;
 	max-height: 360px;
-	width: 48%;
+	width: 27%;
 	background: #3085a3;
 	text-align: center;
 	cursor: pointer;
@@ -44,8 +44,8 @@
 .grid figure figcaption {
 	padding: 2em;
 	color: #fff;
-	text-transform: uppercase;
-	font-size: 1.25em;
+	text-transform: capitalize;
+	font-size: 1.1em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
@@ -289,17 +289,17 @@ figure.effect-roxy:hover p {
 /*---------------*/
 
 figure.effect-bubba {
-	background: #9e5406;
+	background: #4fc3f7;
 }
 
 figure.effect-bubba img {
-	opacity: 0.7;
+	opacity: 0.9;
 	-webkit-transition: opacity 0.35s;
 	transition: opacity 0.35s;
 }
 
 figure.effect-bubba:hover img {
-	opacity: 0.4;
+	opacity: 0.2;
 }
 
 figure.effect-bubba figcaption::before,
@@ -307,7 +307,7 @@ figure.effect-bubba figcaption::after {
 	position: absolute;
 	top: 30px;
 	right: 30px;
-	bottom: 30px;
+	bottom: 50px;
 	left: 30px;
 	content: '';
 	opacity: 0;
@@ -329,12 +329,13 @@ figure.effect-bubba figcaption::after {
 	transform: scale(1,0);
 }
 
-figure.effect-bubba h2 {
-	padding-top: 30%;
+figure.effect-bubba h5 {
+    margin-top: -5%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,-20px,0);
-	transform: translate3d(0,-20px,0);
+	transform: translate3d(0,-30px,0);
+    opacity: 0;
 }
 
 figure.effect-bubba p {
@@ -353,11 +354,12 @@ figure.effect-bubba:hover figcaption::after {
 	transform: scale(1);
 }
 
-figure.effect-bubba:hover h2,
+figure.effect-bubba:hover h5,
 figure.effect-bubba:hover p {
 	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
+    background:transparent;
+    -webkit-transform: translate3d(0,25px,0);
+	transform: translate3d(0,25px,0);
 }
 
 /*---------------*/
