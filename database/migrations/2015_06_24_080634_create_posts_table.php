@@ -16,7 +16,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
+            $table->text('images');
             $table->integer('hits');
+            $table->integer('published');
             $table->integer('shares');
             $table->timestamps();
         });
