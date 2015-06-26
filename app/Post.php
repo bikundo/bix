@@ -8,7 +8,6 @@
     {
         protected $fillable = ['title', 'body'];
         protected $casts = [
-            'images'    => 'array',
             'published' => 'boolean',
         ];
     }

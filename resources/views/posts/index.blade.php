@@ -10,9 +10,8 @@
     @if ($posts->count())
         <div class="grid">
             @foreach ($posts as $post)
-                <?php $img = head($post->images)?>
                 <figure class="effect-zoe">
-                    {!!  HTML::image($img, 'a picture') !!}
+                    {!!  HTML::image($post->images, 'a picture') !!}
                     <figcaption>
                         <h5>{!! strip_tags($post->title) !!}</h5>
 
@@ -22,8 +21,7 @@
                             </a>
                         </p>
 
-                        <p class="description">Zoe never had the patience of her sisters. She deliberately punched the
-                            bear in his face.</p>
+                        <p class="description">{!! str_limit(strip_tags($post->body, 50)) !!}</p>
                     </figcaption>
                 </figure>
             @endforeach
