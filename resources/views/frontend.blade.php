@@ -7,6 +7,7 @@
     <title>LOL</title>
     <!-- CSS -->
     <link href="{{ asset('/frontend/css/materialize.min.css') }}" rel="stylesheet">
+    <link href="{{ asset("/backend/css/hovers.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/frontend/css/style.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
