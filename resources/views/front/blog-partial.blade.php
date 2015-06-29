@@ -1,8 +1,9 @@
 <div class="row">
+    <div class="dddddddd">
+        <h4 class="light center section-headers fancy"><span>Blog</span></h4>
+    </div>
     @foreach($posts as $post)
-        <div class="col m3">
-            <h4 class="light">Small</h4>
-
+        <div class="col m4">
             <div class="card small">
                 <div class="card-image">
                     {!!  HTML::image($post->images, 'a picture') !!}

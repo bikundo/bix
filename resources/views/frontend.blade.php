@@ -8,6 +8,7 @@
     <!-- CSS -->
     <link href="{{ asset('/frontend/css/materialize.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
     <link href="{{ asset("/backend/css/hovers.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('/frontend/css/style.css') }}" rel="stylesheet">
 
@@ -24,34 +25,45 @@
 </head>
 <body>
 <main>
-    <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
+    <div class="navbar-fixed">
+        <nav class="cl-effect-17  light-blue center">
+            <div class="center hide-on-med-and-down">
+                <a href="#home" data-scroll data-hover="Home">Home</a>
+                <a href="#about" data-scroll data-hover="about">About</a>
+                <a href="#portfolio" data-scroll data-hover="Portfolio">Portfolio</a>
+                <a href="#blog" data-scroll data-hover="Blog">blog</a>
+                <a href="#contact" data-scroll data-hover="Contact">Contact</a>
+            </div>
+             <a href="#" data-activates="mobile-demo" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
+        </nav>
 
-            <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+    </ul>
 
 
     @yield('content')
 </main>
 {{--<footer class="page-footer blue darken-3">--}}
-    {{--<div class="footer-copyright">--}}
-        {{--<div class="container">--}}
-            {{--<i class="mdi-image-filter-drama"></i> 2015--}}
-            {{--<a class="grey-text text-lighten-4 right" href="#!">LINK</a>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+{{--<div class="footer-copyright">--}}
+{{--<div class="container">--}}
+{{--<i class="mdi-image-filter-drama"></i> 2015--}}
+{{--<a class="grey-text text-lighten-4 right" href="#!">LINK</a>--}}
+{{--</div>--}}
+{{--</div>--}}
 {{--</footer>--}}
 
 <!-- Scripts -->
 <script src="{{URL::asset('frontend/js/materialize.min.js')}}"></script>
+<script src="{{URL::asset('/js/smooth-scroll.min.js')}}"></script>
 <script src="{{URL::asset('/js/vue.min.js')}}"></script>
+<script src="{{URL::asset('/js/vue-resource.min.js')}}"></script>
 <script src="{{URL::asset('frontend/js/app.js')}}"></script>
 </body>
 </html>
