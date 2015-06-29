@@ -5,10 +5,12 @@
     <form class="col s12" method="POST" id="contact-me-form" v-on="submit: onSubmitForm">
         <div class="row">
             <div class="input-field col s6">
+                <i class="material-icons prefix">person_pin</i>
                 <input name="name" id="first_name" type="text" v-model="newMessage.name" class="validate">
                 <label for="first_name">Name</label>
             </div>
             <div class="input-field col s6">
+                <i class="material-icons prefix">email</i>
                 <input id="last_name" type="email" v-model="newMessage.email" name="email" class="validate">
                 <label for="last_name">Email</label>
             </div>
@@ -28,4 +30,21 @@
         <button class="btn waves-effect waves-light btn-block  light-blue darken-1" type="submit" name="action">Send
         </button>
     </form>
+    <div class="loading-div hide">
+        <div class="loading-center">
+            <div class="preloader-wrapper active">
+                <div class="spinner-layer spinner-red-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
