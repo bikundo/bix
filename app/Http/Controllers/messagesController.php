@@ -58,10 +58,10 @@
                 // Send the email
                 $msg = Input::only('message', 'name', 'email');
                 $subject = 'Incoming!';
-                Mail::send('emails.contact', ['msg' => $msg], function ($message) use ($subject) {
-                    $message->to('binmonk@gmail.com', '')
-                        ->subject($subject);
-                });
+//                Mail::send('emails.contact', ['msg' => $msg], function ($message) use ($subject) {
+//                    $message->to('binmonk@gmail.com', '')
+//                        ->subject($subject);
+//                });
 
 //                save
                 Message::create($msg);
