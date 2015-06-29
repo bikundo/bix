@@ -25,6 +25,9 @@
         return view('front.home');
     });
 
+//    contact post route
+    Route::post('contact', 'messagesController@store');
+
 // Authentication routes...
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');

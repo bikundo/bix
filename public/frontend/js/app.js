@@ -1,19 +1,51 @@
-/**
- * Created by peter on 6/5/2015.
- */
-$(".button-collapse").sideNav();
+smoothScroll.init({
+    speed: 1000, // Integer. How fast to complete the scroll in milliseconds
+    easing: 'easeInOutCubic', // Easing pattern to use
+    updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
+    offset: 50, // Integer. How far to offset the scrolling anchor location in pixels
+    callbackBefore: function (toggle, anchor) {
+    }, // Function to run before scrolling
+    callbackAfter: function (toggle, anchor) {
+    } // Function to run after scrolling
+});
 
-var wordsView = new Vue({
-    el: '#wordsView',
+new Vue({
+    el: '#contact-me-form',
+
     data: {
-        message: 'Loading',
-        words: null,
+        newMessage: {name: '', email: '', message: '', _token: ''},
+        submitted: false
     },
-    methods: {
-        fetchData: $.get("/words", function (data) {
-            wordsView.$data.words = data;
-            console.log(data);
-        })
 
+    computed: {
+        errors: function () {
+            for (var key in this.newMessage) {
+                if (!this.newMessage[key]) return true;
+            }
+
+            return false;
+        }
+    },
+
+    methods: {
+
+        onSubmitForm: function (e) {
+            e.preventDefault();
+
+            var message = this.newMessage;
+            var token = $('#csrf_token').val();
+            this.submitted = true;
+
+            this.$http.post('/contact', message,
+                function (data, status, request) {
+                    if (data.success) {
+                        Materialize.toast(data.message, 4000, 'rounded')
+                        this.newMessage = {name: '', message: '', email: '', _token: token};
+                    } else {
+                        Materialize.toast(data.message, 4000, 'rounded')
+                    }
+                });
+            ;
+        }
     }
-})
+});
