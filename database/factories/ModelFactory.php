@@ -20,11 +20,11 @@
         ];
     });
     $factory->define(App\Post::class, function ($faker) {
-
+    $n = $faker->numberBetween($min = 1, $max = 600);
         return [
             'title'     => $faker->sentence($nbWords = 3),
             'body'      => $faker->text($maxNbChars = 1400),
-            'images'    => $faker->imageUrl($width = 640, $height = 480, 'technics'),
+            'images'    => "https://unsplash.it/500/500?image=".$n,
             'published' => $faker->boolean($chanceOfGettingTrue = 80),
             'shares'    => $faker->numberBetween($min = 1, $max = 90),
             'hits'      => $faker->numberBetween($min = 1, $max = 90),
@@ -32,10 +32,11 @@
     });
 
     $factory->define(App\Gig::class, function ($faker) {
+        $n = $faker->numberBetween($min = 1, $max = 600);
         return [
             'name'        => $faker->sentence($nbWords = 4),
             'description' => $faker->text($maxNbChars = 700),
-            'images'      => $faker->imageUrl($width = 640, $height = 480, 'technics'),
+            'images'      => "https://unsplash.it/500/500?image=".$n,
             'url'         => $faker->url(),
             'published'   => $faker->boolean($chanceOfGettingTrue = 80),
             'likes'       => $faker->numberBetween($min = 1, $max = 90),
