@@ -21,7 +21,9 @@
          */
         public function index()
         {
-            //
+            $messages = Message::orderBy('created_at', 'desc')->whereStatus('0')->get();
+
+            return view('messages.index', compact('messages'));
         }
 
         /**

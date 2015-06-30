@@ -12,7 +12,7 @@
         @include('front.portfolio-partial')
     </section>
     <section class=" light-blue white-text">
-        <section id="blog" class="section container ">
+        <section id="blog" class="section ">
             @include('front.blog-partial')
         </section>
     </section>

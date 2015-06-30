@@ -1131,6 +1131,14 @@ footer.page-footer {
 }
 
 /* icon prefix focus color */
-.input-field .prefix.active {
+.input-field .prefix.active,  textarea.materialize-textarea:focus:not([readonly])+label,  input[type=email]:focus:not([readonly]) + label  {
     color: #03a9f4;
 }
+
+.small-text {
+    font-size: 0.7em !important;
+    padding: 17px !important;
+}
+ textarea.materialize-textarea:focus:not([readonly]),  input[type=email]:focus:not([readonly]){
+    border-bottom: 1px solid #03a9f4;
+    box-shadow: 0 1px 0 0 #03a9f4; }
