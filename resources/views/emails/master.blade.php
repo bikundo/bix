@@ -145,19 +145,10 @@
 
             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#58c3f0">
 
-                <!-- webversion -->
-                <tbody>
-                <tr>
-                    <td bgcolor="#2dabe0" height="25" align="center" valign="middle"
-                        style="color:#c1e4fa; font-family:Helvetica, Arial, sans-serif; font-size:11px;">
-                        Having trouble viewing this email
-                        <a href="#" style="color:#ffffff; text-decoration:none;">View online</a>
-                    </td>
-                </tr>
-                <!-- end webversion -->
                 <tr>
                     <td align="center">
-                        <table class="table600" height="175" bgcolor="#69c9f2" width="600" border="0" cellspacing="0"
+                        <table class="table600" height="175" bgcolor="#69c9f2" width="100% !important" border="0"
+                               cellspacing="0"
                                cellpadding="0">
 
                             <!-- logo -->
@@ -183,242 +174,232 @@
                         </table>
                     </td>
                 </tr>
-                </tbody>
-            </table>
-
-            <!--End Header--> </td>
-    </tr>
-
-    <!-- content with 2 buttons -->
-    <tr>
-        <td>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tbody>
-                <tr>
-                    <td bgcolor="#f8f8f8">
-                        <table class="table600" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tbody>
-                            <tr>
-                                <td height="25"></td>
-                            </tr>
-
-                            <!-- title -->
-                            <tr>
-                                <td height="54" align="center"
-                                    style="font-family: Arial, Helvetica, sans-serif;font-size:30px; color:#6b6b6b;">
-                                    <span style="color:#58c3f0;">Cheesecake</span>
-                                    brownie
-                                </td>
-                            </tr>
-                            <!-- end title -->
-
-                            <tr>
-                                <td height="10"></td>
-                            </tr>
-
-                            <!-- content -->
-                            <tr>
-                                <td align="center"
-                                    style="font-family: Arial, Helvetica, sans-serif;font-size:14px; color:#adadad; line-height:24px;">
-                                    @yield('content')
-                                </td>
-                            </tr>
-                            <!-- end content -->
-
-                            <tr>
-                                <td height="15"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <!-- button -->
-
-                                                <table style="border-radius:4px" bgcolor="#bad576" width="100"
-                                                       border="0" align="center" cellpadding="0" cellspacing="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="40" align="center"
-                                                            style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color:#ffffff;">
-                                                            Read more
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <!-- end button --> </td>
-                                            <td width="25"></td>
-                                            <td>
-                                                <!-- button -->
-
-                                                <table style="border-radius:4px" bgcolor="#bad576" width="100"
-                                                       border="0" align="center" cellpadding="0" cellspacing="0">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td height="40" align="center"
-                                                            style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color:#ffffff;">
-                                                            Contact us
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-
-                                                <!-- end button --> </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
-        </td>
-    </tr>
-    <!-- end content with 2 buttons -->
-
-    <!-- 1/3 panel [left text]-->
-
-    <!-- end 1/3 panel [left text]-->
-    <!-- divider -->
-
-    <!-- end divider -->
-    <!-- 1/3 panel [left text]-->
-
-    <!-- end 1/3 panel [left text]-->
-
-    <!-- divider -->
-
-    <!-- end divider -->
-    <!-- 2/2 content -->
-
-    <!-- end 2/2 content -->
-    <!-- 2/2 content -->
-
-    <!-- end 2/2 content -->
-    <!--footer info-->
-    <tr>
-        <td>
-            <table width="100%   " border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody>
-                <tr>
-
-                </tr>
-
-                <tr>
-                    <td align="center" bgcolor="#e2e2e2">
-                        <table class="table600" width="600" border="0" cellspacing="0" cellpadding="0"
-                               bgcolor="#e8e8e8">
-                            <tbody>
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                            <tr>
-                                <td align="center" valign="top">
-                                    <table class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
-
-                                        <!-- notification -->
-                                        <tbody>
-                                        <tr>
-                                            <td align="center"
-                                                style="font-family: Helvetica, Arial, sans-serif; font-size:12px ; color:#999999; padding:0px 35px; line-height:20px;">
-                                                You are receiving this message because you signed up to receive
-                                                <a href="#"
-                                                   style="color:#009ce7; text-decoration:none">yourdomain.com</a>
-                                                newsletters. Click here to
-                                                <a href="#" style="color:#009ce7; text-decoration:none">unsubscribe</a>
-                                                or update
-                                                <a href="#" style="color:#009ce7; text-decoration:none">preferences.</a>
-                                                Feel free to contact us at customer support at
-                                                <a href="#" style="color:#009ce7; text-decoration:none">youremail@email
-                                                    .com</a>
-                                            </td>
-                                        </tr>
-                                        <!-- end notification -->
-                                        <tr>
-                                            <td height="20"></td>
-                                        </tr>
-
-                                        <!--social-->
-                                        <tr>
-                                            <td align="center">
-                                                <table width="172" border="0" cellpadding="0" cellspacing="0"
-                                                       class="social">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <a href="#">
-                                                                <img src="img/social_facebook.png" width="25"
-                                                                     height="25" alt="facebook">
-                                                            </a>
-                                                        </td>
-                                                        <td width="24"></td>
-                                                        <td>
-                                                            <a href="#">
-                                                                <img src="img/social_twitter.png" width="25" height="25"
-                                                                     alt="twitter">
-                                                            </a>
-                                                        </td>
-                                                        <td width="24"></td>
-                                                        <td>
-                                                            <a href="#">
-                                                                <img src="img/social_googleplus.png" width="25"
-                                                                     height="25" alt="googleplus">
-                                                            </a>
-                                                        </td>
-                                                        <td width="24"></td>
-                                                        <td>
-                                                            <a href="#">
-                                                                <img src="img/social_youtube.png" width="25" height="25"
-                                                                     alt="youtube">
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <!--end social--> </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="20"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#d9d9d9">
-                        <table class="table600" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-                            <tbody>
-                            <tr>
-                                <td height="30" align="center" bgcolor="#e1e1e1"
-                                    style="font-family: Helvetica, Arial, sans-serif; font-size:11px; color:#6b6b6b;">
-                                    Copyright ©
-                                    <a href="#" style="color:#009ce7; text-decoration:none;">www.yourdomain.com</a>
-                                    , All rights reserved
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-            <!--End footer info--> </td>
-    </tr>
     </tbody>
+</table>
+
+<!--End Header--> </td>
+</tr>
+
+<!-- content with 2 buttons -->
+<tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+                <td bgcolor="#f8f8f8">
+                    <table class="table600" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td height="25"></td>
+                        </tr>
+
+                        <tr>
+                            <td height="10"></td>
+                        </tr>
+
+                        <!-- content -->
+                        <tr>
+                            <td align="center"
+                                style="font-family: Arial, Helvetica, sans-serif;font-size:14px; color:#adadad; line-height:24px;">
+                                @yield('content')
+                            </td>
+                        </tr>
+                        <!-- end content -->
+
+                        <tr>
+                            <td height="15"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <!-- button -->
+
+                                            <table style="border-radius:4px" bgcolor="#bad576" width="100"
+                                                   border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <td height="40" align="center"
+                                                        style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color:#ffffff;">
+                                                        Read more
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!-- end button --> </td>
+                                        <td width="25"></td>
+                                        <td>
+                                            <!-- button -->
+
+                                            <table style="border-radius:4px" bgcolor="#bad576" width="100"
+                                                   border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                <tr>
+                                                    <td height="40" align="center"
+                                                        style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color:#ffffff;">
+                                                        Contact us
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!-- end button --> </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </td>
+</tr>
+<!-- end content with 2 buttons -->
+
+<!-- 1/3 panel [left text]-->
+
+<!-- end 1/3 panel [left text]-->
+<!-- divider -->
+
+<!-- end divider -->
+<!-- 1/3 panel [left text]-->
+
+<!-- end 1/3 panel [left text]-->
+
+<!-- divider -->
+
+<!-- end divider -->
+<!-- 2/2 content -->
+
+<!-- end 2/2 content -->
+<!-- 2/2 content -->
+
+<!-- end 2/2 content -->
+<!--footer info-->
+<tr>
+    <td>
+        <table width="100%   " border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+
+            </tr>
+
+            <tr>
+                <td align="center" bgcolor="#e2e2e2">
+                    <table class="table600" width="600" border="0" cellspacing="0" cellpadding="0"
+                           bgcolor="#e8e8e8">
+                        <tbody>
+                        <tr>
+                            <td height="20"></td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <table class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+
+                                    <!-- notification -->
+                                    <tbody>
+                                    <tr>
+                                        <td align="center"
+                                            style="font-family: Helvetica, Arial, sans-serif; font-size:12px ; color:#999999; padding:0px 35px; line-height:20px;">
+                                            You are receiving this message because you signed up to receive
+                                            <a href="#"
+                                               style="color:#009ce7; text-decoration:none">yourdomain.com</a>
+                                            newsletters. Click here to
+                                            <a href="#" style="color:#009ce7; text-decoration:none">unsubscribe</a>
+                                            or update
+                                            <a href="#" style="color:#009ce7; text-decoration:none">preferences.</a>
+                                            Feel free to contact us at customer support at
+                                            <a href="#" style="color:#009ce7; text-decoration:none">youremail@email
+                                                .com</a>
+                                        </td>
+                                    </tr>
+                                    <!-- end notification -->
+                                    <tr>
+                                        <td height="20"></td>
+                                    </tr>
+
+                                    <!--social-->
+                                    <tr>
+                                        <td align="center">
+                                            <table width="172" border="0" cellpadding="0" cellspacing="0"
+                                                   class="social">
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a href="#">
+                                                            <img src="img/social_facebook.png" width="25"
+                                                                 height="25" alt="facebook">
+                                                        </a>
+                                                    </td>
+                                                    <td width="24"></td>
+                                                    <td>
+                                                        <a href="#">
+                                                            <img src="img/social_twitter.png" width="25" height="25"
+                                                                 alt="twitter">
+                                                        </a>
+                                                    </td>
+                                                    <td width="24"></td>
+                                                    <td>
+                                                        <a href="#">
+                                                            <img src="img/social_googleplus.png" width="25"
+                                                                 height="25" alt="googleplus">
+                                                        </a>
+                                                    </td>
+                                                    <td width="24"></td>
+                                                    <td>
+                                                        <a href="#">
+                                                            <img src="img/social_youtube.png" width="25" height="25"
+                                                                 alt="youtube">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!--end social--> </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="20"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" bgcolor="#d9d9d9">
+                    <table class="table600" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td height="30" align="center" bgcolor="#e1e1e1"
+                                style="font-family: Helvetica, Arial, sans-serif; font-size:11px; color:#6b6b6b;">
+                                Copyright ©
+                                <a href="#" style="color:#009ce7; text-decoration:none;">www.yourdomain.com</a>
+                                , All rights reserved
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!--End footer info--> </td>
+</tr>
+</tbody>
 </table>
 
 </body>
