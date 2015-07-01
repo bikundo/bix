@@ -38,9 +38,11 @@
     Route::post('auth/register', 'Auth\AuthController@postRegister');
 
     Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+        Route::post('portfolio', 'GigsController@store');
+        Route::get('portfolio/{id}', 'GigsController@show');
         // upload image route for MediumInsert plugin
         Route::any('upload', 'PostsController@upload');
-// resource routes for posts
+        // resource routes for posts
         Route::resource('posts', 'PostsController');
         Route::get('/', function () {
             $data['tasks'] = [

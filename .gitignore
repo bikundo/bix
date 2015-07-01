@@ -8,6 +8,7 @@ npm-debug.log
 .phpintel/
 workbench/*
 /public/bower_components/
+/public/uploads/
 
 /bootstrap/compiled.php
 .env.*.php

@@ -104,18 +104,17 @@
     buttonLabels: 'fontawesome'
     // initializing editors
     var titleEditor = new MediumEditor('.title-editable');
-    var descriptionEditor = new MediumEditor('.description-editable ');
     var bodyEditor = new MediumEditor('.body-editable');
     $('#summernote').summernote({
         height: "300px"
     });
     $(function () {
-        // initializing insert image on body editor
-        $('.body-editable').MediumEditor({
-            editor: bodyEditor,
-            images: true,
-            imagesUploadScript: "{{ URL::to('upload') }}"
-        });
+        {{--// initializing insert image on body editor--}}
+        {{--$('.body-editable').MediumEditor({--}}
+        {{--editor: bodyEditor,--}}
+        {{--images: true,--}}
+        {{--imagesUploadScript: "{{ URL::to('upload') }}"--}}
+        {{--});--}}
         // deactivate editors on show view
         if ($('#hideEditor').length) {
             $('.body-editable').MediumEditor('disable');
@@ -205,5 +204,6 @@
         return false;
     });
 </script>
+@yield('footer-scripts')
 </body>
 </html>

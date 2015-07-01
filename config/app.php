@@ -148,6 +148,7 @@
             Laracasts\Generators\GeneratorsServiceProvider::class,
             Laravel\Socialite\SocialiteServiceProvider::class,
             \App\Providers\ViewComposerServiceProvider::class,
+            Intervention\Image\ImageServiceProvider::class,
 
         ],
 
@@ -200,6 +201,7 @@
             'HTML'      => Illuminate\Html\HtmlFacade::class,
             'Flash'     => Laracasts\Flash\Flash::class,
             'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+            'Image'     => Intervention\Image\Facades\Image::class,
 
         ],
 
