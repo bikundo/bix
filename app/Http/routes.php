@@ -44,6 +44,7 @@
         Route::any('upload', 'PostsController@upload');
         // resource routes for posts
         Route::resource('posts', 'PostsController');
+        Route::resource('gigs', 'GigsController');
         Route::get('/', function () {
             $data['tasks'] = [
                 [

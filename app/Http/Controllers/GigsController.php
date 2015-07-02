@@ -28,9 +28,11 @@
          */
         public function index()
         {
+            $page_title = 'Is this all you have done?';
+            $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
             $gigs = $this->gig->orderBy('created_at', 'desc')->get();
 
-            return view('gigs.index', compact('gigs'));
+            return view('gigs.index', compact('gigs', 'page_title', 'page_description'));
         }
 
         /**
@@ -71,7 +73,7 @@
                          'message' => 'gig created successfully.',
                          'gig'     => $g,
             ];
-            return Response::json($response);
+            return Redirect::route('gigs.index');
             // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
@@ -145,8 +147,8 @@
         private function get_images($gig)
         {
             $folder = public_path() . '/uploads/' . $gig->id . '/';
-            $files = File::allFiles($folder);
-            foreach ($files as $file) {
+            $f = File::allFiles($folder);
+            foreach ($f as $file) {
                 $files[] = (string)$file;
             }
             $one = head($files);

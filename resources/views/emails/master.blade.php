@@ -147,7 +147,7 @@
 
                 <tr>
                     <td align="center">
-                        <table class="table600" height="175" bgcolor="#69c9f2" width="100% !important" border="0"
+                        <table height="175" bgcolor="#69c9f2" width="100% !important" border="0"
                                cellspacing="0"
                                cellpadding="0">
 

@@ -6,6 +6,13 @@
     <link href="{{ asset("/backend/css/hovers.css")}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
+    <style>
+        .grid {
+            margin-left: 1%;
+            margin-right: 1%;
+            overflow: auto;
+        }
+    </style>
 
     @if ($posts->count())
         <div class="grid">
