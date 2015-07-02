@@ -58,7 +58,9 @@
          */
         public function store(CreateArticleRequest $request)
         {
-            $input = Input::except('_token');
+            $input = Input::except('_token', 'images');
+            $g = new Post($input);
+            $g->save();
 
             $this->post->create($input);
 
