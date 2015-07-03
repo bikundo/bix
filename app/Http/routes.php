@@ -11,16 +11,6 @@
     |
     */
 
-    Route::get('/mail-test', function () {
-        $subject = 'Welcome!';
-
-        Mail::send('emails.welcome', ['key' => 'value'], function ($message) use ($subject) {
-            $message->to('binmonk@gmail.com', '')
-                ->subject($subject);
-        });
-
-        return 'sent';
-    });
     Route::get('/', function () {
         return view('front.home');
     });
