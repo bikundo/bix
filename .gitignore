@@ -7,7 +7,6 @@ npm-debug.log
 .idea/
 .phpintel/
 workbench/*
-/public/bower_components/
 /public/uploads/
 
 /bootstrap/compiled.php

@@ -15,7 +15,10 @@
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    {{--style partials--}}
+    @yield('header-styles')
+
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,7 +37,7 @@
                 <a href="#blog" data-scroll data-hover="Blog">blog</a>
                 <a href="#contact" data-scroll data-hover="Contact">Contact</a>
             </div>
-             <a href="#" data-activates="mobile-demo" class="button-collapse">
+            <a href="#" data-activates="mobile-demo" class="button-collapse">
                 <i class="material-icons">menu</i>
             </a>
         </nav>
@@ -65,5 +68,6 @@
 <script src="{{URL::asset('/js/vue.min.js')}}"></script>
 <script src="{{URL::asset('/js/vue-resource.min.js')}}"></script>
 <script src="{{URL::asset('frontend/js/app.js')}}"></script>
+@yield('footer-content')
 </body>
 </html>

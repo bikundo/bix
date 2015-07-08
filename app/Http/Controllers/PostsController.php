@@ -77,10 +77,7 @@
         public function show($id)
         {
             $post = $this->post->findOrFail($id);
-            $page_title = strip_tags($post->title);
-            $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
-
-            return view('posts.show', compact('post', 'page_title', 'page_description'));
+            return view('posts.show', compact('post'));
         }
 
         /**

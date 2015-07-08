@@ -9,7 +9,7 @@
                 <h5>{!! strip_tags($post->title) !!}</h5>
 
                 <p class="small-text">{!! str_limit(strip_tags($post->body, 30)) !!}</p>
-                <a href="/auth/login">View more</a>
+                <a href="/blog/{{$post->id}}">View more</a>
             </figcaption>
         </figure>
     @endforeach
