@@ -4,7 +4,7 @@
     <div class="demo-blog__posts mdl-grid">
         <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
-                <h3>{{$post->title}}</h3>
+                <h3>{!! $post->title !!}</h3>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
                 <div class="minilogo"></div>

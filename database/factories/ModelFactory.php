@@ -19,6 +19,12 @@
 //        'remember_token' => str_random(10),
         ];
     });
+    $factory->define(App\Tag::class, function ($faker) {
+        return [
+            'name'     => $faker->word,
+//        'remember_token' => str_random(10),
+        ];
+    });
     $factory->define(App\Post::class, function ($faker) {
     $n = $faker->numberBetween($min = 1, $max = 600);
         return [

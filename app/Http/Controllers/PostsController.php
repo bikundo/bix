@@ -4,8 +4,10 @@
 
     use App\Http\Requests\CreateArticleRequest;
     use App\Post;
+    use App\Tag;
     use Illuminate\Support\Facades\Input;
     use Illuminate\Support\Facades\Response;
+    use Illuminate\Support\Facades\File;
 
     /**
      * Class PostsController
@@ -34,6 +36,9 @@
         public function index()
         {
             $posts = $this->post->orderBy('created_at', 'desc')->get();
+            foreach ($posts as $post) {
+                $posts[] = self::get_images($post);
+            }
 
             return view('posts.index', compact('posts'));
         }
@@ -47,8 +52,9 @@
         {
             $page_title = 'create new blog post';
             $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+            $tags = Tag::all();
 
-            return view('posts.create', compact('page_title', 'page_description'));
+            return view('posts.create', compact('page_title', 'page_description', 'tags'));
         }
 
 
@@ -58,13 +64,28 @@
          */
         public function store(CreateArticleRequest $request)
         {
-            $input = Input::except('_token', 'images');
+//            dd(Input::all());
+            $images = Input::file("images");
+            $input = Input::except('_token', 'images', 'tags');
             $g = new Post($input);
+            $g->save();
+            $g->tags()->sync(Input::get('tags'));
+            foreach ($images as $i) {
+                $fileName = time() . '-' . $i->getClientOriginalName();
+                $destination = public_path() . '/uploads/blog/' . $g->id . '/';
+                $i->move($destination, $fileName);
+                $results[] = '/uploads/blog/' . $g->id . '/' . $fileName;
+            }
+            $g->images = json_encode($results);
             $g->save();
 
             $this->post->create($input);
+            $return = ['success' => true,
+                       'errors'  => '',
+                       'message' => 'Post created successfully.',
+                       'id'      => $g->id,];
 
-            return Response::json(array('success' => true, 'errors' => '', 'message' => 'Post created successfully.'));
+            return redirect()->to('dashboard/posts');
             // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
@@ -77,6 +98,8 @@
         public function show($id)
         {
             $post = $this->post->findOrFail($id);
+            $post = self::get_images($post);
+            dd($post);
             return view('posts.show', compact('post'));
         }
 
@@ -140,5 +163,26 @@
             $file->move($destination, $fileName);
 
             echo url('/uploads/' . $fileName);
+        }
+
+        private function get_images($post)
+        {
+            if (self::isJson($post->images) && !empty($post->images)) {
+                $images = json_decode($post->images);
+                $one = head($images);
+                $post->single_image = $one;
+                $post->all_images = $images;
+            } else {
+                $images[] = $post->images;
+                $post->single_image = $post->images;
+                $post->all_images = $images;
+            }
+            return $post;
+        }
+
+        function isJson($string)
+        {
+            json_decode($string);
+            return (json_last_error() == JSON_ERROR_NONE);
         }
     }

@@ -64,7 +64,7 @@
                 $fileName = time() . '-' . $i->getClientOriginalName();
                 $destination = public_path() . '/uploads/' . $g->id . '/';
                 $i->move($destination, $fileName);
-                $results[] = $destination . $fileName;
+                $results[] = '/uploads/' . $g->id . '/' . $fileName;
             }
             $g->images = json_encode($results);
             $g->save();
@@ -73,7 +73,7 @@
                          'message' => 'gig created successfully.',
                          'gig'     => $g,
             ];
-            return Redirect::route('gigs.index');
+            return redirect()->route('gigs.index');
             // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 

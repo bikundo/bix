@@ -149,6 +149,7 @@
             Laravel\Socialite\SocialiteServiceProvider::class,
             \App\Providers\ViewComposerServiceProvider::class,
             Intervention\Image\ImageServiceProvider::class,
+            Barryvdh\Debugbar\ServiceProvider::class,
 
         ],
 
@@ -202,6 +203,7 @@
             'Flash'     => Laracasts\Flash\Flash::class,
             'Socialite' => Laravel\Socialite\Facades\Socialite::class,
             'Image'     => Intervention\Image\Facades\Image::class,
+            'Debugbar'  => Barryvdh\Debugbar\Facade::class,
 
         ],
 

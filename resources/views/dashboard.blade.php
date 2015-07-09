@@ -45,7 +45,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-purple sidebar-mini">
+<body class="skin-purple sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
     <!-- Header -->
@@ -127,46 +127,12 @@
     $('.success').hide().empty();
 
     // create post
-    $('body').on('click', '#form-submit', function (e) {
-        e.preventDefault();
-        var postTitle = titleEditor.serialize();
+    $('#create_post_form').submit(function (e) {
         var contentbody = $('#summernote').code();
-        var token = $('#token').val();
-        console.log(contentbody);
-
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: "{{ URL::action('PostsController@store') }}",
-            data: {title: postTitle['post-title']['value'], body: contentbody, _token: token},
-            success: function (data) {
-                if (data.success === false) {
-                    $('.error').append(data.message);
-                    var notification = new NotificationFx({
-                        message: '<p>' + data.message + '</p>',
-                        layout: 'growl',
-                        effect: 'jelly',
-                        type: 'success', // notice, warning, error or success
-                    });
-                    // show the notification
-                    notification.show();
-                } else {
-                    $('.success').append(data.message);
-                    var notification = new NotificationFx({
-                        message: '<p>' + data.message + '</p>',
-                        layout: 'growl',
-                        effect: 'jelly',
-                        type: 'success', // notice, warning, error or success
-                    });
-                    // show the notification
-                    notification.show();
-                }
-            },
-            error: function (xhr, textStatus, thrownError) {
-                alert('Something went wrong. Please Try again later...');
-            }
-        });
-        return false;
+        $("#summernote").val($('#summernote').code());
+//        alert( $("#summernote").val())
+        $(this).append('<input type="hidden" name="post-body" value="' + contentbody + '" /> ');
+        return true;
     });
     // update post
     $('body').on('click', '#form-update', function (e) {

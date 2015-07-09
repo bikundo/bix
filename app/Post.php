@@ -10,4 +10,8 @@
         protected $casts = [
             'published' => 'boolean',
         ];
+        public function tags()
+        {
+            return $this->belongsToMany('App\Tag');
+        }
     }

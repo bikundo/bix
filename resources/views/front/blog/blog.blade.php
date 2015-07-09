@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Material Design Lite</title>
+    <title>{{'Bikundo.co | Blog'}}</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -33,11 +33,13 @@
           rel="stylesheet">
     <link rel="stylesheet" href=" {{ asset('/bower_components/material-design-lite/material.min.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="{{URL::asset('js/prettify.js')}}"></script>
     <link rel="stylesheet" href=" {{ asset('/css/blog.css') }}">
+    <link rel="stylesheet" href=" {{ asset('/css/prettify.css') }}">
 
 
 </head>
-<body>
+<body onload="prettyPrint()">
 <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
 
     <main class="mdl-layout__content">

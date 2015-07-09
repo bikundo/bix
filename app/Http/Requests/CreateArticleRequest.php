@@ -24,8 +24,8 @@ class CreateArticleRequest extends Request
     public function rules()
     {
         return [
-            'title'=>'required|unique:posts|max:255',
-            'body'=>'required',
+//            'title'=>'required|unique:posts',
+//            'body'=>'required',
         ];
     }
 }
