@@ -99,7 +99,6 @@
         {
             $post = $this->post->findOrFail($id);
             $post = self::get_images($post);
-            dd($post);
             return view('posts.show', compact('post'));
         }
 

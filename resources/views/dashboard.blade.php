@@ -13,6 +13,7 @@
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css"/>
     <!-- Theme style -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"/>
     <link href="{{ asset("/bower_components/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css"/>
 
     <link href="{{ asset("/bower_components/admin-lte/dist/css/skins/_all-skins.min.css")}}" rel="stylesheet"
@@ -36,7 +37,6 @@
     {{--<link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>--}}
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/ns-default.css")}}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset("/css/ns-style-growl.css")}}" rel="stylesheet" type="text/css"/>
     @yield('header-styles')
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,7 +45,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-purple sidebar-mini sidebar-collapse">
+<body class="skin-blue sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
     <!-- Header -->
@@ -105,8 +105,9 @@
     // initializing editors
     var titleEditor = new MediumEditor('.title-editable');
     var bodyEditor = new MediumEditor('.body-editable');
+    var descriptionEditor = new MediumEditor('.description-editable');
     $('#summernote').summernote({
-        height: "300px"
+        height: "300px",
     });
     $(function () {
         {{--// initializing insert image on body editor--}}

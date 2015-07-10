@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Category;
     use Illuminate\Http\Request;
 
     use App\Http\Requests;
@@ -44,8 +45,9 @@
         {
             $page_title = 'create new gig';
             $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
+            $categories = Category::all();
 
-            return view('gigs.create', compact('page_title', 'page_description'));
+            return view('gigs.new', compact('page_title', 'page_description', 'categories'));
         }
 
         /**

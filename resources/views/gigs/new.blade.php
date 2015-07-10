@@ -19,26 +19,43 @@
             </div>
         @endif
 
-        {!! Form::open(['route' => 'dashboard.posts.store', 'files' => 'true', 'id'=>'create_post_form', 'onsubmit'=>'return postForm()'])  !!}
-        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}"/>
+        <form role="form" action="/dashboard/portfolio" method="post" id="new-job-form"
+              enctype="multipart/form-data">
+            <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}"/>
 
-        <div class="row form-container">
-            <div class="col-md-9">
-                <div class="form-group">
-                    <input type="text" id="title-input" placeholder="title" class="form-control text-center"
-                           name="title"/>
-                </div>
-                <div class="box box-info">
-                    <div class="box-body">
-                        <textarea id="summernote" rows="" name="body"></textarea>
+            <div class="row form-container">
+                <div class="col-md-9">
+                    <div class="form-group">
+                         <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" name="name"
+                           id="input-38"/>
+					<label class="input__label input__label--isao" for="input-38" data-content=" Name">
+                        <span class="input__label-content input__label-content--isao">name</span>
+                    </label>
+				</span>
+                    </div>
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <span class="input input--isao">
+					<input class="input__field input__field--isao  my-editable-divs" name="url"
+                           type="text"
+                           id="input-39"/>
+					<label class="input__label input__label--isao" for="input-39" data-content="Link ">
+                        <span class="input__label-content input__label-content--isao">Link</span>
+                    </label>
+				</span>
+
+                            <div class="description-editable my-editable-divs" id="description">
+                                <p>Description</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box box-info">
-                    <div class="box-body">
-                        {!! Form::submit('Save Post', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
-                        <hr>
+                <div class="col-md-3">
+                    <div class="box box-info">
+                        <div class="box-body">
+                            {!! Form::submit('Save', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
+                            <hr>
 
                             <div class="form-group">
                             <span class="file-input btn btn-block btn-default btn-sm btn-file">
@@ -48,21 +65,29 @@
                                        id="images_input">
                             </span>
                             </div>
-                        <div class="form-group">
-                            <select name="tags[]" class="form-control" multiple="multiple">
-                                @foreach($tags as $tag)
-                                    <option value="{{$tag->id}}">{{$tag->name}}</option>
-                                @endforeach
-                            </select>
+                            <div class="form-group">
+                                <select name="categories[]" class="form-control" multiple="multiple">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         {!! Form::close() !!}
     </div>
     </div>
+    <script>
+        $("#new-job-form").submit(function (eventObj) {
+            var desc = descriptionEditor.serialize();
+            var d = desc['description']['value'];
+            $(this).append('<input type="hidden" name="description" value="' + d + '" /> ');
+            return true;
+        });
+    </script>
 
 @endsection
 

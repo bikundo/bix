@@ -21,16 +21,22 @@
     });
     $factory->define(App\Tag::class, function ($faker) {
         return [
-            'name'     => $faker->word,
+            'name' => $faker->word,
+//        'remember_token' => str_random(10),
+        ];
+    });
+    $factory->define(App\Category::class, function ($faker) {
+        return [
+            'name' => $faker->word,
 //        'remember_token' => str_random(10),
         ];
     });
     $factory->define(App\Post::class, function ($faker) {
-    $n = $faker->numberBetween($min = 1, $max = 600);
+        $n = $faker->numberBetween($min = 1, $max = 600);
         return [
             'title'     => $faker->sentence($nbWords = 3),
             'body'      => $faker->text($maxNbChars = 1400),
-            'images'    => "https://unsplash.it/500/500?image=".$n,
+            'images'    => "https://unsplash.it/500/500?image=" . $n,
             'published' => $faker->boolean($chanceOfGettingTrue = 80),
             'shares'    => $faker->numberBetween($min = 1, $max = 90),
             'hits'      => $faker->numberBetween($min = 1, $max = 90),
@@ -42,7 +48,7 @@
         return [
             'name'        => $faker->sentence($nbWords = 4),
             'description' => $faker->text($maxNbChars = 700),
-            'images'      => "https://unsplash.it/500/500?image=".$n,
+            'images'      => "https://unsplash.it/500/500?image=" . $n,
             'url'         => $faker->url(),
             'published'   => $faker->boolean($chanceOfGettingTrue = 80),
             'likes'       => $faker->numberBetween($min = 1, $max = 90),

@@ -10,4 +10,9 @@
             'published' => 'boolean',
         ];
         protected $fillable = ['name', 'description', 'url'];
+
+        public function categories()
+        {
+            return $this->belongsToMany('App\Category');
+        }
     }

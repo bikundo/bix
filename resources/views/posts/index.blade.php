@@ -18,7 +18,7 @@
         <div class="grid">
             @foreach ($posts as $post)
                 <figure class="effect-zoe">
-                    {!!  HTML::image($post->images, 'a picture') !!}
+                    <img src="{{$post->single_image or $post->single_image}}" alt="an image"/>
                     <figcaption>
                         <h5>{!! strip_tags($post->title) !!}</h5>
 
