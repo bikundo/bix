@@ -24,10 +24,16 @@
 
         <div class="row form-container">
             <div class="col-md-9">
-                <div class="form-group">
-                    <input type="text" id="title-input" placeholder="title" class="form-control text-center"
-                           name="title"/>
-                </div>
+                <span class="input input--minoru">
+					<input class="input__field input__field--minoru  my-editable-divs" id="title-input"
+                           placeholder="title" class="form-control text-center"
+                           name="title"
+                           type="text"
+                           id="input-39"/>
+					<label class="input__label input__label--minoru" for="input-39" data-content="Link ">
+                    </label>
+				</span>
+
                 <div class="box box-info">
                     <div class="box-body">
                         <textarea id="summernote" rows="" name="body"></textarea>
@@ -40,14 +46,14 @@
                         {!! Form::submit('Save Post', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
                         <hr>
 
-                            <div class="form-group">
+                        <div class="form-group">
                             <span class="file-input btn btn-block btn-default btn-sm btn-file">
                                 <i class="fa fa-image pull-left"></i> Upload Images
                                 <input type="file" class="form-images" name="images[]"
                                        multiple="true"
                                        id="images_input">
                             </span>
-                            </div>
+                        </div>
                         <div class="form-group">
                             <select name="tags[]" class="form-control" multiple="multiple">
                                 @foreach($tags as $tag)

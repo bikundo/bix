@@ -52,7 +52,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{!! url('dashboard/gigs') !!}"><i class="fa fa-circle-o"></i>All</a></li>
-                <li><a href="{!! url('dashboard/') !!}"><i class="fa fa-circle-o"></i> Morris</a></li>
+                <li><a href="{!! url('dashboard/gigs/create') !!}"><i class="fa fa-circle-o"></i>Create</a></li>
               </ul>
             </li>
             <li class="treeview">

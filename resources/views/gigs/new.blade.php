@@ -26,27 +26,29 @@
             <div class="row form-container">
                 <div class="col-md-9">
                     <div class="form-group">
-                         <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" name="name"
+                         <span class="input input--minoru">
+					<input class="input__field input__field--minoru" placeholder="Name of the project" type="text"
+                           name="name"
                            id="input-38"/>
-					<label class="input__label input__label--isao" for="input-38" data-content=" Name">
-                        <span class="input__label-content input__label-content--isao">name</span>
+					<label class="input__label input__label--minoru" for="input-38" data-content=" Name">
+                    </label>
+				</span>
+                    </div>
+                    <div class="form-group">
+                        <span class="input input--minoru">
+					<input class="input__field input__field--minoru  my-editable-divs" name="url"
+                           type="text" placeholder="link or URL of the project"
+                           id="input-39"/>
+					<label class="input__label input__label--minoru" for="input-39" data-content="Link ">
                     </label>
 				</span>
                     </div>
                     <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Description of the project</h3>
+                        </div>
                         <div class="box-body">
-                            <span class="input input--isao">
-					<input class="input__field input__field--isao  my-editable-divs" name="url"
-                           type="text"
-                           id="input-39"/>
-					<label class="input__label input__label--isao" for="input-39" data-content="Link ">
-                        <span class="input__label-content input__label-content--isao">Link</span>
-                    </label>
-				</span>
-
                             <div class="description-editable my-editable-divs" id="description">
-                                <p>Description</p>
                             </div>
                         </div>
                     </div>
@@ -183,6 +185,9 @@
             border: 0;
             border-top: 1px solid #e5e5e5;
             border-bottom: 1px solid #e5e5e5;
+        }
+        .description-editable{
+            color: black !important;
         }
     </style>
 @endsection

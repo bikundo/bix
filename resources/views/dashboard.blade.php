@@ -101,11 +101,33 @@
 
 
 <script>
-    buttonLabels: 'fontawesome'
     // initializing editors
-    var titleEditor = new MediumEditor('.title-editable');
+    var titleEditor = new MediumEditor('.title-editable', {
+        placeholder: {
+            text: 'Type your text here mate'
+        },
+
+    });
     var bodyEditor = new MediumEditor('.body-editable');
-    var descriptionEditor = new MediumEditor('.description-editable');
+    var descriptionEditor = new MediumEditor('.description-editable', {
+        buttonLabels: 'fontawesome',
+        toolbar: {
+            buttons: ['bold', 'orderedlist', 'unorderedlist', 'underline', 'anchor', 'h1', 'removeFormat', 'h4', 'h5', 'pre', 'strikethrough']
+        },
+        placeholder: {
+            text: 'Type your text here mate'
+        },
+        anchor: {
+            /* These are the default options for anchor form,
+             if nothing is passed this is what it used */
+            customClassOption: null,
+            customClassOptionText: 'Button',
+            linkValidation: false,
+            placeholderText: 'Paste or type a link',
+            targetCheckbox: false,
+            targetCheckboxText: 'Open in new window'
+        }
+    });
     $('#summernote').summernote({
         height: "300px",
     });

@@ -61,21 +61,15 @@
             $input = Input::except('_token', 'images');
             $g = new Gig($input);
             $g->save();
-
+            $results = [];
+            $img = head($images);
             foreach ($images as $i) {
-                $fileName = time() . '-' . $i->getClientOriginalName();
-                $destination = public_path() . '/uploads/' . $g->id . '/';
-                $i->move($destination, $fileName);
-                $results[] = '/uploads/' . $g->id . '/' . $fileName;
+                $results[] = self::process_image($i, $g);
             }
+            self::make_thumb($img, $g);
             $g->images = json_encode($results);
             $g->save();
-            $response = ['success' => true,
-                         'errors'  => '',
-                         'message' => 'gig created successfully.',
-                         'gig'     => $g,
-            ];
-            return redirect()->route('gigs.index');
+            return redirect()->to('dashboard/gigs');
             // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
@@ -148,15 +142,42 @@
 
         private function get_images($gig)
         {
-            $folder = public_path() . '/uploads/' . $gig->id . '/';
-            $f = File::allFiles($folder);
-            foreach ($f as $file) {
-                $files[] = (string)$file;
+            if (self::isJson($gig->images) && !empty($gig->images)) {
+                $images = json_decode($gig->images);
+                $one = head($images);
+                $gig->single_image = $one;
+                $gig->all_images = $images;
+            } else {
+                $images[] = $gig->images;
+                $gig->single_image = $gig->images;
+                $gig->all_images = $images;
             }
-            $one = head($files);
-            $gig->single_image = $one;
-            $gig->all_images = $files;
             return $gig;
         }
+
+        function isJson($string)
+        {
+            json_decode($string);
+            return (json_last_error() == JSON_ERROR_NONE);
+        }
+
+        private function process_image($i, $g)
+        {
+            $fileName = time() . '-' . $i->getClientOriginalName();
+            $destination = public_path() . '/uploads/' . $g->id . '/';
+            $i->move($destination, $fileName);
+            $r = '/uploads/' . $g->id . '/' . $fileName;
+            return $r;
+        }
+
+        private function make_thumb($i, $g)
+        {
+            $fileName = time() . '-' . $i->getClientOriginalName();
+            $destination = public_path() . '/uploads/' . $g->id . '/';
+            $thumb = Image::make($destination . $fileName)->fit(325, 280);
+            $thumb->save(($destination . 'thumb.jpg'));
+            return true;
+        }
+
 
     }
