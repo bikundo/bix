@@ -4,7 +4,7 @@
     </div>
     @foreach($posts as $post)
         <figure class="effect-goliath">
-            <img src="{{$post->single_image or $post->single_image}}" alt="image" class=""/>
+             <img src="/uploads/blog/{{$post->id}}/thumb.jpg" alt="image"/>
             <figcaption>
                 <h5>{!! strip_tags($post->title) !!}</h5>
 

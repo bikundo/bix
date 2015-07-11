@@ -14,11 +14,11 @@
         {
             Model::unguard();
 //
-//            $this->call('OptionTableSeeder');
+           $this->call('OptionTableSeeder');
 //            $this->call('UserTableSeeder');
 //            $this->call('PostTableSeeder');
 //            $this->call('GigTableSeeder');
-//            $this->call('TagsTableSeeder');
+           $this->call('TagsTableSeeder');
             $this->call('CategoriesSeeder');
 
             Model::reguard();

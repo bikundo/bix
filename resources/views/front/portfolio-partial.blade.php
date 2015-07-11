@@ -2,7 +2,7 @@
     <h4 class="light center section-headers fancy"><span>Portfolio</span></h4>
     @foreach($works as $work)
         <figure class="effect-bubba">
-            <img src="/uploads/{{$work->id}}/thumb.jpg" alt="image"/>
+            <img src="/uploads/portfolio/{{$work->id}}/thumb.jpg" alt="image"/>
             <figcaption>
                 <h5>{!! strip_tags($work->name) !!}</h5>
 

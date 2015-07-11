@@ -2,7 +2,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="/dashboard" class="logo">Bix.io</a>
+    <a href="/dashboard" class="logo">Bix</a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">

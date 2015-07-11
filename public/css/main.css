@@ -616,7 +616,7 @@
 }
 
 .input__field--kyo:focus,
-.input__field--kyo:focus +  .input__label--kyo .input__label-content--kyo {
+.input__field--kyo:focus + .input__label--kyo .input__label-content--kyo {
     z-index: 10000;
 }
 
@@ -1002,7 +1002,7 @@
 }
 
 .input__field--kaede:focus + .input__label--kaede,
-.input--filled .input__label--kaede  {
+.input--filled .input__label--kaede {
     -webkit-transform: translate3d(60%, 0, 0);
     transform: translate3d(60%, 0, 0);
     pointer-events: none;
@@ -1010,7 +1010,7 @@
 
 @media screen and (max-width: 34em) {
     .input__field--kaede:focus + .input__label--kaede,
-    .input--filled .input__label--kaede  {
+    .input--filled .input__label--kaede {
         -webkit-transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
         transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
         pointer-events: none;
@@ -1097,7 +1097,9 @@
     opacity: 0;
     -webkit-transform: translate3d(0, -50%, 0);
     transform: translate3d(0, -50%, 0);
-}/* Overlay style */
+}
+
+/* Overlay style */
 .overlay {
     position: fixed;
     width: 100%;
@@ -1116,7 +1118,7 @@
     top: 36px;
     overflow: hidden;
     border: none;
-    background:transparent;
+    background: transparent;
     color: white;
     outline: none;
 }
@@ -1203,46 +1205,54 @@
         height: 70%;
         font-size: 34px;
     }
+
     .overlay ul li {
         min-height: 34px;
     }
 }
-.my-editable-divs{
-    outline: aliceblue !important;
-}
-.my-editable-divs:focus{
+
+.my-editable-divs {
     outline: aliceblue !important;
 }
 
-.body-editable{
+.my-editable-divs:focus {
+    outline: aliceblue !important;
+}
+
+.body-editable {
     min-height: 350px;
 }
-.description-editable{
+
+.description-editable {
     min-height: 100px;
 }
-.overlay-hugeinc{
-    color:white !important;
+
+.overlay-hugeinc {
+    color: white !important;
 }
+
 .form-group {
-    color:white !important;
+    color: white !important;
 }
-#description{
+
+#description {
     background: rgba(237, 237, 237, 0.14);
     color: white;
-    max-height: 100px !important;
+    min-height: 330px !important;
 }
 
 /*summernote edits*/
-#summernote{
+#summernote {
     min-height: 300px;
 }
 
 .note-editor {
-  position: relative;
-   border: none; 
+    position: relative;
+    border: none;
 }
+
 .note-editor .note-toolbar {
-   background-color: transparent; 
-   border-bottom: none; 
+    background-color: transparent;
+    border-bottom: none;
     margin: 0 auto;
 }

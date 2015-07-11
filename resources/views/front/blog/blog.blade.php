@@ -34,6 +34,7 @@
     <link rel="stylesheet" href=" {{ asset('/bower_components/material-design-lite/material.min.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="{{URL::asset('js/prettify.js')}}"></script>
+    <script src="{{ asset ("/bower_components/admin-lte/plugins/jQuery/jQuery-2.1.4.min.js") }}"></script>
     <link rel="stylesheet" href=" {{ asset('/css/blog.css') }}">
     <link rel="stylesheet" href=" {{ asset('/css/prettify.css') }}">
 
@@ -63,5 +64,10 @@
     <div class="mdl-layout__obfuscator"></div>
 </div>
 <script src="{{URL::asset('bower_components/material-design-lite/material.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+  $('pre').addClass("prettyprint");
+});
+</script>
 </body>
 </html>

@@ -25,24 +25,6 @@
 
             <div class="row form-container">
                 <div class="col-md-9">
-                    <div class="form-group">
-                         <span class="input input--minoru">
-					<input class="input__field input__field--minoru" placeholder="Name of the project" type="text"
-                           name="name"
-                           id="input-38"/>
-					<label class="input__label input__label--minoru" for="input-38" data-content=" Name">
-                    </label>
-				</span>
-                    </div>
-                    <div class="form-group">
-                        <span class="input input--minoru">
-					<input class="input__field input__field--minoru  my-editable-divs" name="url"
-                           type="text" placeholder="link or URL of the project"
-                           id="input-39"/>
-					<label class="input__label input__label--minoru" for="input-39" data-content="Link ">
-                    </label>
-				</span>
-                    </div>
                     <div class="box box-info">
                         <div class="box-header with-border">
                             <h3 class="box-title">Description of the project</h3>
@@ -56,7 +38,24 @@
                 <div class="col-md-3">
                     <div class="box box-info">
                         <div class="box-body">
-                            {!! Form::submit('Save', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
+                            <div class="form-group" style="background: rgb(245, 247, 249)">
+                         <span class="input input--minoru">
+					        <input class="input__field input__field--minoru" placeholder="Name of the project" type="text"
+                           name="name"
+                           id="input-38"/>
+					<label class="input__label input__label--minoru" for="input-38" data-content=" Name">
+                    </label>
+				</span>
+                            </div>
+                            <div class="form-group" style="background: rgb(245, 247, 249)">
+                        <span class="input input--minoru">
+					<input class="input__field input__field--minoru  my-editable-divs" name="url"
+                           type="text" placeholder="link or URL of the project"
+                           id="input-39"/>
+					<label class="input__label input__label--minoru" for="input-39" data-content="Link ">
+                    </label>
+				</span>
+                            </div>
                             <hr>
 
                             <div class="form-group">
@@ -74,6 +73,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <hr>
+                            <hr>
+                            {!! Form::submit('Save', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
                         </div>
                     </div>
                 </div>
@@ -114,7 +116,7 @@
                 if (input.length) {
                     input.val(log);
                 } else {
-                    if (log) alert(log);
+                    if (log) console.log(log);
                 }
 
             });
@@ -186,7 +188,8 @@
             border-top: 1px solid #e5e5e5;
             border-bottom: 1px solid #e5e5e5;
         }
-        .description-editable{
+
+        .description-editable {
             color: black !important;
         }
     </style>

@@ -58,9 +58,10 @@
         public function store()
         {
             $images = Input::file("images");
-            $input = Input::except('_token', 'images');
+            $input = Input::except('_token', 'images','categories');
             $g = new Gig($input);
             $g->save();
+            $g->categories()->sync(Input::get('categories'));
             $results = [];
             $img = head($images);
             foreach ($images as $i) {
@@ -70,7 +71,6 @@
             $g->images = json_encode($results);
             $g->save();
             return redirect()->to('dashboard/gigs');
-            // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
         /**
@@ -164,7 +164,7 @@
         private function process_image($i, $g)
         {
             $fileName = time() . '-' . $i->getClientOriginalName();
-            $destination = public_path() . '/uploads/' . $g->id . '/';
+            $destination = public_path() . '/uploads/portfolio/' . $g->id . '/';
             $i->move($destination, $fileName);
             $r = '/uploads/' . $g->id . '/' . $fileName;
             return $r;
@@ -173,7 +173,7 @@
         private function make_thumb($i, $g)
         {
             $fileName = time() . '-' . $i->getClientOriginalName();
-            $destination = public_path() . '/uploads/' . $g->id . '/';
+            $destination = public_path() . '/uploads/portfolio/' . $g->id . '/';
             $thumb = Image::make($destination . $fileName)->fit(325, 280);
             $thumb->save(($destination . 'thumb.jpg'));
             return true;

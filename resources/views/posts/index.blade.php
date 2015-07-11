@@ -14,11 +14,11 @@
         }
     </style>
 
-    @if ($posts->count())
+    @if (!empty($posts))
         <div class="grid">
             @foreach ($posts as $post)
                 <figure class="effect-zoe">
-                    <img src="{{$post->single_image or $post->single_image}}" alt="an image"/>
+                     <img src="/uploads/blog/{{$post->id}}/thumb.jpg" alt="image"/>
                     <figcaption>
                         <h5>{!! strip_tags($post->title) !!}</h5>
 

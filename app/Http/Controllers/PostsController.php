@@ -8,6 +8,7 @@
     use Illuminate\Support\Facades\Input;
     use Illuminate\Support\Facades\Response;
     use Illuminate\Support\Facades\File;
+    use Intervention\Image\Facades\Image;
 
     /**
      * Class PostsController
@@ -35,8 +36,8 @@
          */
         public function index()
         {
-            $posts = $this->post->orderBy('created_at', 'desc')->get();
-            foreach ($posts as $post) {
+            $p = $this->post->orderBy('created_at', 'desc')->get();
+            foreach ($p as $post) {
                 $posts[] = self::get_images($post);
             }
 
@@ -70,23 +71,15 @@
             $g = new Post($input);
             $g->save();
             $g->tags()->sync(Input::get('tags'));
+            $img = head($images);
             foreach ($images as $i) {
-                $fileName = time() . '-' . $i->getClientOriginalName();
-                $destination = public_path() . '/uploads/blog/' . $g->id . '/';
-                $i->move($destination, $fileName);
-                $results[] = '/uploads/blog/' . $g->id . '/' . $fileName;
+                $results[] = self::process_image($i, $g);
             }
+            self::make_thumb($img, $g);
             $g->images = json_encode($results);
             $g->save();
 
-            $this->post->create($input);
-            $return = ['success' => true,
-                       'errors'  => '',
-                       'message' => 'Post created successfully.',
-                       'id'      => $g->id,];
-
             return redirect()->to('dashboard/posts');
-            // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
         /**
@@ -136,7 +129,6 @@
             return Response::json(array('success' => true, 'errors' => '', 'message' => 'Post updated successfully.'));
 
 
-            // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
         }
 
         /**
@@ -152,18 +144,6 @@
             return Redirect::route('posts.index');
         }
 
-        public function upload()
-        {
-            $file = Input::file('file');
-            $input = array('image' => $file);
-
-            $fileName = time() . '-' . $file->getClientOriginalName();
-            $destination = public_path() . '/uploads/';
-            $file->move($destination, $fileName);
-
-            echo url('/uploads/' . $fileName);
-        }
-
         private function get_images($post)
         {
             if (self::isJson($post->images) && !empty($post->images)) {
@@ -177,6 +157,23 @@
                 $post->all_images = $images;
             }
             return $post;
+        }
+        private function process_image($i, $g)
+        {
+            $fileName = time() . '-' . $i->getClientOriginalName();
+                $destination = public_path() . '/uploads/blog/' . $g->id . '/';
+            $i->move($destination, $fileName);
+            $r = '/uploads/' . $g->id . '/' . $fileName;
+            return $r;
+        }
+
+        private function make_thumb($i, $g)
+        {
+            $fileName = time() . '-' . $i->getClientOriginalName();
+            $destination = public_path() . '/uploads/blog/' . $g->id . '/';
+            $thumb = Image::make($destination . $fileName)->fit(325, 280);
+            $thumb->save(($destination . 'thumb.jpg'));
+            return true;
         }
 
         function isJson($string)
