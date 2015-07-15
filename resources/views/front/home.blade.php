@@ -5,7 +5,7 @@
         <img src="https://download.unsplash.com/photo-1421757295538-9c80958e75b0" alt="an image"
              class="responsive-img"/>
     </header>
-    <section id="about" class="light-blue white-text">
+    <section id="about" class="grey lighten-5">
         @include('front.about')
     </section>
     <section id="portfolio" class="section">

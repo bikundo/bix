@@ -12,7 +12,7 @@ return array(
      |
      */
 
-    'enabled' => false,
+    'enabled' => true,
 
     /*
      |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ return array(
         ),
         'db' => array(
             'with_params'       => true,   // Render SQL with the parameters substituted
-            'timeline'          => false,  // Add the queries to the timeline
+            'timeline'          => true,  // Add the queries to the timeline
             'backtrace'         => false,  // EXPERIMENTAL: Use a backtrace to find the origin of the query in your files.
             'explain' => array(            // EXPERIMENTAL: Show EXPLAIN output on queries
                 'enabled' => false,
