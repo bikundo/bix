@@ -38,6 +38,7 @@
     <link href="{{ asset("/backend/css/jquery.growl.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/ns-default.css")}}" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
     @yield('header-styles')
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +47,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-blue sidebar-mini sidebar-collapse">
+<body class="skin-purple sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
     <!-- Header -->
