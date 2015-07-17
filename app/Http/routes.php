@@ -36,6 +36,7 @@
         // resource routes for posts
         Route::resource('posts', 'PostsController');
         Route::resource('gigs', 'GigsController');
+        Route::post('settings', 'messagesController@save_settings');
         Route::get('/', function () {
             $data['tasks'] = [
                 [

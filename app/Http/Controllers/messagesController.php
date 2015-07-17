@@ -11,7 +11,8 @@
     use Illuminate\Support\Facades\Response;
     use Illuminate\Support\Facades\Validator;
     use Mail;
-
+    use App\Option;
+    
     class messagesController extends Controller
     {
         /**
@@ -118,4 +119,17 @@
         {
             //
         }
+        public function save_settings()
+    {
+        $data = Input::except( '_token');
+        foreach ($data as $key => $value) {
+            $setting = Option::where('option_name','=',$key)->first();
+            $setting->option_value = $value;
+            $setting->save();
+        }
+                $response = [];
+                $response['success'] = true;
+                $response['message'] = 'settings successfully updated';
+                return Response::json($response);
+    }
     }

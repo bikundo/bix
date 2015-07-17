@@ -101,60 +101,25 @@
 
           <!-- Settings tab content -->
           <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-              <h3 class="control-sidebar-heading">General Settings</h3>
-              <div class="form-group">
+            <form method="post"  v-on="submit: onSubmitForm" id="settings-form">
+              <h3 class="control-sidebar-heading">Site Settings</h3>
+                @foreach($site_options as $site_option)
+                  <div class="form-group">
                 <label class="control-sidebar-subheading">
-                  Report panel usage
-                  <input type="checkbox" class="pull-right" checked />
-                </label>
-                <p>
-                  Some information about this general settings option
-                </p>
+                  {{ $site_option->name_string }}
+                  </label>
+                  <input type="text" name="{{ $site_option->option_name }}" 
+                  class="form-control" 
+                  value="{{ $site_option->option_value }}"
+                  v-model="newMessage.{{ $site_option->option_name }}"
+                   />
               </div><!-- /.form-group -->
-
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Allow mail redirect
-                  <input type="checkbox" class="pull-right" checked />
-                </label>
-                <p>
-                  Other sets of options are available
-                </p>
-              </div><!-- /.form-group -->
-
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Expose author name in posts
-                  <input type="checkbox" class="pull-right" checked />
-                </label>
-                <p>
-                  Allow the user to show his name in blog posts
-                </p>
-              </div><!-- /.form-group -->
-
-              <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Show me as online
-                  <input type="checkbox" class="pull-right" checked />
-                </label>
-              </div><!-- /.form-group -->
-
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Turn off notifications
-                  <input type="checkbox" class="pull-right" />
-                </label>
-              </div><!-- /.form-group -->
-
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Delete chat history
-                  <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                </label>
-              </div><!-- /.form-group -->
+                @endforeach
+                <input type="hidden" name="_token" id="csrf_token" v-model="newMessage._token"
+                       value="<?php echo csrf_token(); ?>">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-xs btn-block btn-primary"/>
+                </div>
             </form>
           </div><!-- /.tab-pane -->
         </div>

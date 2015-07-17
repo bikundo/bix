@@ -1,46 +1,42 @@
-
-
-Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#CSRFtoken').getAttribute('value');
-
 new Vue({
-    el: '#guestbook',
+    el: '#settings-form',
 
     data: {
-        newGig: { name: '', description: '', },
+        newMessage: {site_name: '', site_admin: '', admin_email: '', _token: ''},
         submitted: false
     },
 
     computed: {
-        errors: function() {
-            for (var key in this.newGig) {
-                if ( ! this.newGig[key]) return true;
+        errors: function () {
+            for (var key in this.newMessage) {
+                if (!this.newMessage[key]) return true;
             }
 
             return false;
         }
     },
 
-    ready: function() {
-        this.fetchGigs();
-    },
-
     methods: {
-        fetchGigs: function() {
-            this.$http.get('/api/gigs', function(gigs) {
-                this.$set('gigs', gigs);
-            });
-        },
 
-        onSubmitForm: function(e) {
+        onSubmitForm: function (e) {
             e.preventDefault();
+            $('.loading-div').toggleClass("hide");
 
-            var gig = this.newGig;
-
-            this.gigs.push(gig);
-            this.newGig = { name: '', gig: '' };
+            var message = this.newMessage;
+            var token = $('#csrf_token').val();
             this.submitted = true;
 
-            this.$http.post('/dashboard/gigs', gig);
+            this.$http.post('/dashboard/settings', message,
+                function (data, status, request) {
+                    if (data.success) {
+                        console.log(data);
+                         $.growl.notice({ title: "Successful!!", message: data.message});
+                    } else {
+                        console.log(data);
+                         $.growl.notice({ title: "Successful!!", message: "There was a problem saving settings!" });
+                    }
+                });
+            ;
         }
     }
 });

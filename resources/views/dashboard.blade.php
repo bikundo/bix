@@ -35,6 +35,7 @@
     <script src="{{ asset ("/backend/js/vue-resource.min.js") }}" type="text/javascript"></script>
     {{--end Vue--}}
     {{--<link href="{{ asset("/backend/css/pnotify.custom.min.css")}}" rel="stylesheet" type="text/css"/>--}}
+    <link href="{{ asset("/backend/css/jquery.growl.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/main.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset("/css/ns-default.css")}}" rel="stylesheet" type="text/css"/>
     @yield('header-styles')
@@ -95,6 +96,7 @@
 <script src="{{ asset ("/bower_components/admin-lte/dist/js/app.min.js") }}" type="text/javascript"></script>
 <script src="{{ asset ("/bower_components/medium-editor/dist/js/medium-editor.js") }}"
         type="text/javascript"></script>
+<script src="{{ asset ("/backend/js/jquery.growl.js") }}" type="text/javascript"></script>
 <script src="{{ asset ("/js/main.js") }}" type="text/javascript"></script>
 <script src="{{ asset ("/js/overlays.js") }}" type="text/javascript"></script>
 <script src="{{ asset ("/js/notificationFx.js") }}" type="text/javascript"></script>
@@ -206,19 +208,12 @@
                 } else {
                     $('.success').append(data.message);
 //                    $('.success').show();
-                    var notification = new NotificationFx({
-                        message: '<p>' + data.message + '</p>',
-                        layout: 'growl',
-                        effect: 'jelly',
-                        type: 'success', // notice, warning, error or success
-                    });
+                    $.growl.notice({ title: "Successful!!", message: data.message});
 
-                    // show the notification
-                    notification.show();
                 }
             },
             error: function (xhr, textStatus, thrownError) {
-                alert('Something went wrong. Please Try again later...');
+                $.growl.notice({ title: "Successful!!", message: 'Something went wrong. Please Try again later...'});
             }
         });
         return false;

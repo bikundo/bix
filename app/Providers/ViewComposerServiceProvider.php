@@ -5,6 +5,7 @@
     use App\Post;
     use App\Gig;
     use Illuminate\Support\ServiceProvider;
+    use App\Option;
 
     class ViewComposerServiceProvider extends ServiceProvider
     {
@@ -23,6 +24,8 @@
 
                 $view->with('posts', $posts);
             });
+            $data = Option::lists('option_value','option_name');
+                view()->share('options', $data);
             view()->composer('front.portfolio-partial', function ($view) {
                 $rawJobs = Gig::where('published', 1)
                     ->orderBy('id', 'desc')
@@ -32,8 +35,15 @@
                 }
                 $view->with('works', $works);
             });
+            view()->composer('right', function ($view) {
+                $settings = Option::all();
+                $options = [];
+                foreach ($settings as $setting) {
+                    $options[] = self::clean_options($setting);
+                }
+                $view->with('site_options', $options);
+            });
         }
-
         /**
          * Register the application services.
          *
@@ -63,5 +73,10 @@
         {
             json_decode($string);
             return (json_last_error() == JSON_ERROR_NONE);
+        }
+        private function clean_options($option)
+        {
+             $option->name_string = str_replace("_", " ", $option->option_name);
+             return $option;
         }
     }

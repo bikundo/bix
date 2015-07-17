@@ -14,8 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data = Option::lists('option_value','option_name');
-        view()->share('options', $data);
+        
     }
 
     /**
