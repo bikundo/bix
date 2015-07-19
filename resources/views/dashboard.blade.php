@@ -47,7 +47,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-purple sidebar-mini sidebar-collapse">
+<body class="skin-red sidebar-mini sidebar-collapse">
 <div class="wrapper">
 
     <!-- Header -->

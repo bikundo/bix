@@ -1027,6 +1027,7 @@ footer.page-footer {
 .fancy span {
     display: inline-block;
     position: relative;
+    font-family: 'Baumans', cursive;
 }
 
 .fancy span:before, .fancy span:after {
@@ -1164,3 +1165,31 @@ textarea.materialize-textarea:focus:not([readonly]), input[type=email]:focus:not
     -o-transition: width .3s linear;
     -ms-transition: width .3s linear;
     transition: width .3s linear; }
+    .skill-images{
+        margin-top: 10px;
+        position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .card{
+          border-radius: 5px;
+    }
+    #skills-container{
+        overflow: hidden;
+        padding:none;
+    }
+    #skills-container .row{
+        margin-bottom: 0;
+        color: white !important;
+    }
+     #skills-container .row h5,  #skills-container .row h4{
+        font-family: 'Baumans', cursive;
+ }
+  #skills-container .row h4{
+    text-align: center;
+    font-size: 23px;
+    margin-top: 25%
+  }
+  #skills-container .row h5{
+    font-size: 15px;
+  }

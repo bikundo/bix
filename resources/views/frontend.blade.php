@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LOL</title>
+    <title>{{ $options['site_admin']  or 'My Portfolio'}}</title>
     <!-- CSS -->
     <link href="{{ asset('/frontend/css/materialize.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,6 +14,7 @@
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 
     {{--style partials--}}
     @yield('header-styles')
@@ -44,10 +45,11 @@
 
     </div>
     <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <a href="#home" data-scroll data-hover="Home">Home</a>
+        <a href="#about" data-scroll data-hover="about">About</a>
+        <a href="#portfolio" data-scroll data-hover="Portfolio">Portfolio</a>
+        <a href="#blog" data-scroll data-hover="Blog">blog</a>
+        <a href="#contact" data-scroll data-hover="Contact">Contact</a>    
     </ul>
 
 
@@ -68,6 +70,11 @@
 <script src="{{URL::asset('/js/vue.min.js')}}"></script>
 <script src="{{URL::asset('/js/vue-resource.min.js')}}"></script>
 <script src="{{URL::asset('frontend/js/app.js')}}"></script>
+<script>
+    $( document ).ready(function(){
+         $(".button-collapse").sideNav();
+    })
+</script>
 @yield('footer-content')
 </body>
 </html>

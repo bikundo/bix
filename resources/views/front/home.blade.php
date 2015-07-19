@@ -8,6 +8,9 @@
     <section id="about" class="grey lighten-5">
         @include('front.about')
     </section>
+    <section id="skills" class="grey lighten-4" >
+       @include('front.skills') 
+    </section>
     <section id="portfolio" class="section">
         @include('front.portfolio-partial')
     </section>
