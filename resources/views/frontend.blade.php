@@ -34,6 +34,7 @@
             <div class="center hide-on-med-and-down">
                 <a href="#home" data-scroll data-hover="Home">Home</a>
                 <a href="#about" data-scroll data-hover="about">About</a>
+                <a href="#skills" data-scroll data-hover="skills">Skills</a>
                 <a href="#portfolio" data-scroll data-hover="Portfolio">Portfolio</a>
                 <a href="#blog" data-scroll data-hover="Blog">blog</a>
                 <a href="#contact" data-scroll data-hover="Contact">Contact</a>
@@ -47,6 +48,7 @@
     <ul class="side-nav" id="mobile-demo">
         <a href="#home" data-scroll data-hover="Home">Home</a>
         <a href="#about" data-scroll data-hover="about">About</a>
+        <a href="#skills" data-scroll data-hover="skills">Skills</a>
         <a href="#portfolio" data-scroll data-hover="Portfolio">Portfolio</a>
         <a href="#blog" data-scroll data-hover="Blog">blog</a>
         <a href="#contact" data-scroll data-hover="Contact">Contact</a>    
