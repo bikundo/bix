@@ -10,9 +10,20 @@
     | and give it the controller to call when that URI is requested.
     |
     */
+   Route::get('users', [
+     'middleware' => ['roles'],
+     'roles' => ['administrator', 'manager'], function () {
+        return "heloasdd";
+          }
+]);
 
     Route::get('/', function () {
         return view('front.home');
+    });
+    Route::get('/telegram', function () {
+        $chat_id = env('TELEGRAM_CHAT_ID', '12658734');
+        $response = Telegram::sendMessage($chat_id, 'Hello World, this is a test message!!!');
+        dd($response);
     });
 
 //    contact post route

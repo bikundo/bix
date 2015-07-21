@@ -12,6 +12,8 @@
     use Illuminate\Support\Facades\Validator;
     use Mail;
     use App\Option;
+    use Telegram;
+    use Illuminate\Support\Facades\Queue;
     
     class messagesController extends Controller
     {
@@ -61,9 +63,23 @@
                 // Send the email
                 $msg = Input::only('message', 'name', 'email');
                 $subject = 'Incoming!';
-                Mail::queue('emails.contact', ['msg' => $msg], function ($message) use ($subject) {
-                    $message->to('binmonk@gmail.com', '')
-                        ->subject($subject);
+                // Mail::queue('emails.contact', ['msg' => $msg], function ($message) use ($subject) {
+                //     $message->to('binmonk@gmail.com', '')
+                //         ->subject($subject);
+                // });
+
+                $chat_id = env('TELEGRAM_CHAT_ID', '12658734');
+                $buildmessage = "From:\n".
+                                Input::get('name','Site Visitor')."\n".
+                                "Email:\n".
+                                Input::get('email','Email')."\n".
+                                "Message:\n".
+                                Input::get('message','Email')." 😆\n";
+                $msgs = $buildmessage;
+                Queue::push(function($job) use ($chat_id, $msgs)
+                {
+                   $res = Telegram::sendMessage($chat_id, $msgs);
+                   $job->delete();
                 });
 
 //                save

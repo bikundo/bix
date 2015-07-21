@@ -13,7 +13,8 @@
         "laravel/socialite": "^3.0@dev",
         "intervention/image": "dev-master",
         "intervention/imagecache": "dev-master",
-        "barryvdh/laravel-debugbar": "^2.0@dev"
+        "barryvdh/laravel-debugbar": "^2.0@dev",
+        "irazasyed/telegram-bot-sdk": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
