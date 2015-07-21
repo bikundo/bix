@@ -27,7 +27,7 @@
                        value="<?php echo csrf_token(); ?>">
             </div>
         </div>
-        <button class="btn waves-effect waves-light btn-block  light-blue darken-1" type="submit" name="action">Send
+        <button class="btn waves-effect waves-light btn-block  light-blue darken-1" type="submit" name="action" id="contact-btn">Send
         </button>
     </form>
     <div class="loading-div hide">
