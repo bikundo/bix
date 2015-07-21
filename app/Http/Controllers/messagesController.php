@@ -69,11 +69,11 @@
                 // });
 
                 $chat_id = env('TELEGRAM_CHAT_ID', '12658734');
-                $buildmessage = "From:\n".
-                                Input::get('name','Site Visitor')."\n".
-                                "Email:\n".
-                                Input::get('email','Email')."\n".
-                                "Message:\n".
+                $buildmessage = "😏 From:\n \n".
+                                Input::get('name','Site Visitor')."\n \n".
+                                "📧 Email:\n \n".
+                                Input::get('email','Email')."\n \n".
+                                "📰 Message:\n \n".
                                 Input::get('message','Email')." 😆\n";
                 $msgs = $buildmessage;
                 Queue::push(function($job) use ($chat_id, $msgs)
