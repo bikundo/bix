@@ -10,12 +10,6 @@
     | and give it the controller to call when that URI is requested.
     |
     */
-   Route::get('users', [
-     'middleware' => ['roles'],
-     'roles' => ['administrator', 'manager'], function () {
-        return "heloasdd";
-          }
-]);
 
     Route::get('/', function () {
         return view('front.home');
