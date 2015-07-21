@@ -12,6 +12,6 @@
         public function run()
         {
 
-            factory('App\User', 10)->create();
+            factory('App\User', 1)->create();
         }
     }

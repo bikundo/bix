@@ -14,6 +14,9 @@
     Route::get('/', function () {
         return view('front.home');
     });
+    Route::get('/home', function () {
+        return view('front.home');
+    });
     Route::get('/telegram', function () {
         $chat_id = env('TELEGRAM_CHAT_ID', '12658734');
         $response = Telegram::sendMessage($chat_id, 'Hello World, this is a test message!!!');
@@ -33,7 +36,7 @@
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-    Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+    Route::group(['middleware' => ['auth','admin'], 'prefix' => 'dashboard'], function () {
         Route::post('portfolio', 'GigsController@store');
         Route::get('portfolio/{id}', 'GigsController@show');
         // upload image route for MediumInsert plugin

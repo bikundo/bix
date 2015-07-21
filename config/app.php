@@ -151,6 +151,7 @@
             Intervention\Image\ImageServiceProvider::class,
             Barryvdh\Debugbar\ServiceProvider::class,
             Irazasyed\Telegram\Laravel\TelegramServiceProvider::class,
+            Caffeinated\Shinobi\ShinobiServiceProvider::class,
 
         ],
 
