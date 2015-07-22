@@ -24,8 +24,8 @@
 
                 $view->with('posts', $posts);
             });
-            $data = Option::lists('option_value','option_name');
-                view()->share('options', $data);
+            // $data = Option::lists('option_value','option_name');
+            //     view()->share('options', $data);
             view()->composer('front.portfolio-partial', function ($view) {
                 $rawJobs = Gig::where('published', 1)
                     ->orderBy('id', 'desc')

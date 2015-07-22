@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('front.home');
 });
 
+// Github login
+Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\AuthController@handleProviderCallback');
+
 Route::get('/home', function () {
     return view('front.home');
 });

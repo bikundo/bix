@@ -38,6 +38,7 @@
                 <a href="#portfolio" data-scroll data-hover="Portfolio">Portfolio</a>
                 <a href="#blog" data-scroll data-hover="Blog">blog</a>
                 <a href="#contact" data-scroll data-hover="Contact">Contact</a>
+                <a href="/auth/github"> log in github</a>
             </div>
             <a href="#" data-activates="mobile-demo" class="button-collapse">
                 <i class="material-icons">menu</i>
