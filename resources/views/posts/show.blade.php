@@ -22,7 +22,7 @@
                     {!! $post->body !!}
                 </section>
             </div>
-            <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
+            {{-- <div class="mdl-color-text--primary-contrast mdl-card__supporting-text comments">
                 <form>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
@@ -84,10 +84,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-        <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+        {{-- <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
             <a href="index.html" class="demo-nav__button">
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900">
                     <i class="material-icons">arrow_back</i>
@@ -102,6 +102,6 @@
                     <i class="material-icons">arrow_forward</i>
                 </button>
             </a>
-        </nav>
+        </nav> --}}
     </div>
 @stop

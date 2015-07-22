@@ -8,7 +8,8 @@
                 <h5>{!! strip_tags($work->name) !!}</h5>
 
                 <p>{!! str_limit(strip_tags($work->description, 50)) !!}</p>
-                <a href="/portfolio/{{$work->id}}">View more</a>
+                {{-- <a href="/portfolio/{{$work->id}}">View more</a> --}}
+                <a href="#">View more</a>
             </figcaption>
             <div class="white bottom-attached row">
                 <span class="right small"> {{$work->created_at->diffForHumans()}}</span>
