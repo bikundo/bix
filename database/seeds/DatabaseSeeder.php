@@ -15,7 +15,7 @@
             Model::unguard();
 
             $this->call('OptionTableSeeder');
-            $this->call('UserTableSeeder');
+            // $this->call('UserTableSeeder');
             // $this->call('PostTableSeeder');
             // $this->call('GigTableSeeder');
             $this->call('TagsTableSeeder');
