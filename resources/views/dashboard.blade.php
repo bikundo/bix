@@ -124,7 +124,7 @@
             targetCheckboxText: 'Open in new window'
         }
     });
-    var bodyEditor = new MediumEditor('.body-editable',{
+    var bodyEditor = new MediumEditor('.body-editable', {
         buttonLabels: 'fontawesome',
         toolbar: {
             buttons: ['bold', 'orderedlist', 'unorderedlist', 'underline', 'anchor', 'quote', 'removeFormat', 'h4', 'h5', 'pre', 'strikethrough']
@@ -184,7 +184,7 @@
     $('.success').hide().empty();
 
     // create post
-    $('#create_post_form').submit(function (e) {
+    $('#create_post_form').submit(function () {
         var contentbody = $('#summernote').code();
         $("#summernote").val($('#summernote').code());
 //        alert( $("#summernote").val())
@@ -200,7 +200,7 @@
         $.ajax({
             type: 'PUT',
             dataType: 'json',
-            url: "{{ URL::action('PostsController@update', array(Request::segment(3))) }}",
+            url: "{{ URL::action('PostsController@update', [Request::segment(3)]) }}",
             data: {title: postTitle['post-title']['value'], body: postContent['post-body']['value'], _token: token},
             success: function (data) {
                 if (data.success === false) {
@@ -209,12 +209,12 @@
                 } else {
                     $('.success').append(data.message);
 //                    $('.success').show();
-                    $.growl.notice({ title: "Successful!!", message: data.message});
+                    $.growl.notice({title: "Successful!!", message: data.message});
 
                 }
             },
             error: function (xhr, textStatus, thrownError) {
-                $.growl.notice({ title: "Successful!!", message: 'Something went wrong. Please Try again later...'});
+                $.growl.notice({title: "Successful!!", message: 'Something went wrong. Please Try again later...'});
             }
         });
         return false;

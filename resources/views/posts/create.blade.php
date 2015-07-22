@@ -43,7 +43,7 @@
             <div class="col-md-3">
                 <div class="box box-info">
                     <div class="box-body">
-                        {!! Form::submit('Save Post', array('class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit')) !!}
+                        {!! Form::submit('Save Post', ['class' => 'btn btn-primary btn-block btn-flat', 'id' => 'form-submit']) !!}
                         <hr>
 
                         <div class="form-group">
