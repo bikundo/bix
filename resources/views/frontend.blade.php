@@ -77,6 +77,13 @@
          $(".button-collapse").sideNav();
     })
 </script>
+@if (session('message'))
+    <script>
+    $( document ).ready(function(){
+         Materialize.toast("{{ session('message') }}", 4000, 'rounded');
+    })
+</script>
+@endif
 @yield('footer-content')
 </body>
 </html>

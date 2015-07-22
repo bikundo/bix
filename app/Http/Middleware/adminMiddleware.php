@@ -21,7 +21,7 @@ class adminMiddleware
         if ( ! Auth::user()->is('admin')) {
             Log::info('user is not admin');
 
-            return redirect()->to('/');
+            return redirect()->to('/')->with('message', 'You are not allowed to view that page mate!');;
         }
         Log::info('user is admin');
 
