@@ -14,11 +14,10 @@
 Route::get('/', function () {
     return view('front.home');
 });
-Route::get('/thingy', function () {
-    Auth::user()->assignRole(1);
-    dd(Auth::user());
-});
-
+// Route::get('/thingy', function () {
+//     Auth::user()->assignRole(1);
+//     dd(Auth::user());
+// });
 
 // Github login
 Route::get('auth/github', 'Auth\AuthController@redirectToProvider');
