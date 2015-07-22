@@ -91,7 +91,7 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
-        return Redirect::to('home');
+       return redirect()->to('/')->with('message', 'You have logged in using Github!');
     }
 
     /**
