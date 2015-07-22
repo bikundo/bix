@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\CreateGigRequest;
 
 class GigsController extends Controller
 {
@@ -60,8 +61,8 @@ class GigsController extends Controller
      *
      * @return Response
      */
-    public function store()
-    {
+    public function store(CreateGigRequest $request)
+    {   
         $images = Input::file("images");
         $input  = Input::except('_token', 'images', 'categories');
         $g      = new Gig($input);

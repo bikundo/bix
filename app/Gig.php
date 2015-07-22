@@ -9,7 +9,7 @@
         protected $casts = [
             'published' => 'boolean',
         ];
-        protected $fillable = ['name', 'description', 'url'];
+        protected $fillable = ['name', 'description', 'url','published'];
 
         public function categories()
         {

@@ -22,7 +22,7 @@ class CreateGigRequest extends Request
     public function rules()
     {
         return [
-            'name'        => 'required|unique:posts|max:255',
+            'name'        => 'required',
             'description' => 'required',
             'url'         => 'required',
             'images'      => 'required'

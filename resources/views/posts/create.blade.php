@@ -5,6 +5,8 @@
 
 @section('header-styles')
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <link href="{{ asset("/bower_components/admin-lte/plugins/iCheck/polaris/polaris.css")}}" rel="stylesheet"
+          type="text/css"/>
 @endsection
 @section('content')
     <div class="row">
@@ -61,6 +63,12 @@
                                 @endforeach
                             </select>
                         </div>
+                        <hr>
+                                <div class="iradio">
+                                 <label for="published"><h4>Publish it?</h4></label>
+                                  <input type="checkbox" value="1" name="published" id="published">
+                                </div>
+                            <hr>
                     </div>
                 </div>
             </div>
@@ -85,6 +93,10 @@
         });
 
         $(document).ready(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_polaris',
+                radioClass: 'iradio_polaris'
+            });
             $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
 
                 var input = $(this).parents('.input-group').find(':text'),
@@ -166,4 +178,5 @@
             border-bottom: 1px solid #e5e5e5;
         }
     </style>
+    <script src="{{ asset("/bower_components/admin-lte/plugins/iCheck/icheck.min.js")}}"></script>
 @endsection
