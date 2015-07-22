@@ -4,7 +4,7 @@
 <style>
 .outer-div{
      padding: 20%;
-     min-height: 100%;
+     min-height: 2000px;
      overflow-y: hidden;
 }
 ::-webkit-scrollbar { 
@@ -12,7 +12,6 @@
 }
 .inner-div{
      margin: 0 auto;
-     width: 100px; 
 }
 </style>
 	<div class="outer-div blue accent-3">
