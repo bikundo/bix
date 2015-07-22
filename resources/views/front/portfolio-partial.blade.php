@@ -1,6 +1,6 @@
 <div class="grid" style="overflow: auto; overflow-x: hidden">
     <h4 class="light center section-headers fancy"><span>Portfolio</span></h4>
-    @if ($works && !empty($works))
+    @if ( isset($works) && !empty($works))
         @foreach($works as $work)
         <figure class="effect-bubba">
             <img src="/uploads/portfolio/{{$work->id}}/thumb.jpg" alt="image"/>
