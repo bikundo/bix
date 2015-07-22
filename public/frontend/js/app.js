@@ -8,6 +8,9 @@ smoothScroll.init({
     callbackAfter: function (toggle, anchor) {
     } // Function to run after scrolling
 });
+$( document ).ready(function(){
+         $(".button-collapse").sideNav();
+    });
 
 new Vue({
     el: '#contact-me-form',

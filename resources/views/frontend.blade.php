@@ -72,11 +72,6 @@
 <script src="{{URL::asset('/js/vue.min.js')}}"></script>
 <script src="{{URL::asset('/js/vue-resource.min.js')}}"></script>
 <script src="{{URL::asset('frontend/js/app.js')}}"></script>
-<script>
-    $( document ).ready(function(){
-         $(".button-collapse").sideNav();
-    })
-</script>
 @if (session('message'))
     <script>
     $( document ).ready(function(){

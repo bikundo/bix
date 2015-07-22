@@ -14,8 +14,8 @@
     display: none; 
 }
 .inner-div{
-     margin: 0 auto;
-     text-align: center;
+    margin: 0 auto;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,7 +27,9 @@
 </style>
 	<div class="outer-div blue accent-3">
   		<div class="inner-div">
-  			  <a href="/auth/github" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">settings_power</i></a>
+  			  <a href="/auth/github" class="btn-floating btn-large waves-effect waves-light red">
+                  <i class="material-icons">settings_power</i>
+              </a>
   		</div>
 	</div>
 @endsection
