@@ -1,6 +1,7 @@
 <div class="grid" style="overflow: auto; overflow-x: hidden">
     <h4 class="light center section-headers fancy"><span>Portfolio</span></h4>
-    @foreach($works as $work)
+    @if ($works && !empty($works))
+        @foreach($works as $work)
         <figure class="effect-bubba">
             <img src="/uploads/portfolio/{{$work->id}}/thumb.jpg" alt="image"/>
             <figcaption>
@@ -14,4 +15,7 @@
             </div>
         </figure>
     @endforeach
+    @else
+        <h5>nothing to see here...</h5>
+    @endif
 </div>

@@ -131,7 +131,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="">
-                                <a href="#" class="btn btn-default btn-block btn-flat">Sign out</a>
+                                <a href="/auth/logout" class="btn btn-default btn-block btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

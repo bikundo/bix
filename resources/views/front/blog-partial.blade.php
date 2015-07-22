@@ -2,7 +2,8 @@
     <div class="dddddddd">
         <h4 class="light center section-headers fancy"><span>Blog</span></h4>
     </div>
-    @foreach($posts as $post)
+    @if (!empty($posts))
+        @foreach($posts as $post)
         <figure class="effect-goliath">
              <img src="/uploads/blog/{{$post->id}}/thumb.jpg" alt="image"/>
             <figcaption>
@@ -13,4 +14,8 @@
             </figcaption>
         </figure>
     @endforeach
+    @else
+        <h5>posts cooking....</h5>
+    @endif
+
 </div>
