@@ -177,14 +177,11 @@ class GigsController extends Controller
      */
     public function update($id)
     {
-        $input = Input::except('_token', '_method');
-
+        $input = Input::get('gig');
         $gig = Gig::find($id);
         $gig->update($input);
-
-        return Response::json([ 'success' => true, 'errors' => '', 'message' => 'gig updated successfully.' ]);
-
-
+        return redirect()->to('/dashboard/gigs/')->with('message', 'Successfully updated!');
+        // return Response::json([ 'success' => true, 'errors' => '', 'message' => 'gig updated successfully.' ]);
         // return Response::json(array('success' => false, 'errors' => $validation, 'message' => 'All fields are required.'));
     }
 

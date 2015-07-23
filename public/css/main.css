@@ -1259,3 +1259,6 @@ body {
     border-bottom: none;
     margin: 0 auto;
 }
+ #growls.tr {
+    top: 60px;
+    right: 10px; }

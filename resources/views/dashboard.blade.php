@@ -221,5 +221,12 @@
     });
 </script>
 @yield('footer-scripts')
+@if (session('message'))
+    <script>
+    $( document ).ready(function(){
+         $.growl.notice({title: "Successful!!", message: '{{ session("message") }}', location:'tr'});
+    })
+</script>
+@endif
 </body>
 </html>
