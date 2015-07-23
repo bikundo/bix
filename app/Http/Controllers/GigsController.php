@@ -62,7 +62,7 @@ class GigsController extends Controller
      * @return Response
      */
     public function store(CreateGigRequest $request)
-    {   
+    {  
         $images = Input::file("images");
         $input  = Input::except('_token', 'images', 'categories');
         $g      = new Gig($input);
@@ -75,6 +75,7 @@ class GigsController extends Controller
         }
         self::make_thumb($img, $g);
         $g->images = json_encode($results);
+        $g->description = rawUrlDecode(Input::get('description'));
         $g->save();
 
         return redirect()->to('dashboard/gigs');

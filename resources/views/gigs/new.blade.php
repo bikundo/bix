@@ -91,10 +91,11 @@
     </div>
     </div>
     <script>
-        $("#new-job-form").submit(function (eventObj) {
+        $("#new-job-form").submit(function (e) {
             var desc = descriptionEditor.serialize();
             var d = desc['description']['value'];
-            $(this).append('<input type="hidden" name="description" value="' + d + '" /> ');
+             console.log(encodeURI(d));
+            $(this).append('<input type="hidden" name="description" value="' + encodeURI(d) + '" /> ');
             return true;
         });
     </script>

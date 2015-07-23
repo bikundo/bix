@@ -7,7 +7,7 @@
             <figcaption>
                 <h5>{!! strip_tags($work->name) !!}</h5>
 
-                <p>{!! str_limit(strip_tags($work->description, 50)) !!}</p>
+                <p>{!! str_limit(strip_tags($work->description, 50)) !!}...</p>
                 {{-- <a href="/portfolio/{{$work->id}}">View more</a> --}}
                 <a href="#">View more</a>
             </figcaption>
