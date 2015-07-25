@@ -52,7 +52,7 @@ class GigsController extends Controller
         $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
         $categories       = Category::all();
 
-        return view('gigs.new', compact('page_title', 'page_description', 'categories'));
+        return view('gigs.create', compact('page_title', 'page_description', 'categories'));
     }
 
 
@@ -115,11 +115,10 @@ class GigsController extends Controller
     {
         $gig = $this->gig->findOrFail($id);
         $gig = self::get_images($gig);
-        dd($gig);
         $page_title       = strip_tags($gig->title);
         $page_description = 'We are all apprentices in a craft where no one ever becomes a master.';
 
-        return view('gigs.show', compact('gig', 'page_title', 'page_description'));
+        return view('gigs.view', compact('gig', 'page_title', 'page_description'));
     }
 
 

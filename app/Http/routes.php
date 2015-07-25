@@ -29,6 +29,7 @@ Route::get('/home', function () {
 Route::get('/login', function () {
     return view('auth.signin');
 });
+Route::get('portfolio/{id}', 'GigsController@show');
 Route::get('/telegram', function () {
     $chat_id  = env('TELEGRAM_CHAT_ID', '12658734');
     $response = Telegram::sendMessage($chat_id, 'Hello World, this is a test message!!!');
